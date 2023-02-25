@@ -1,0 +1,118 @@
+% Codification of the document
+\usepackage[utf8]{inputenc}
+
+% Page size and margins
+\usepackage{geometry}
+
+% Hyperlink
+\usepackage{color}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=FireBrick,linktocpage,unicode]{hyperref}
+
+% Bibtex (load after hyperref)
+\usepackage[sort&compress,numbers]{natbib}
+\bibliographystyle{apsrev4-2}
+\usepackage{doi}
+
+% Mathematical features
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\theoremstyle{definition}
+\usepackage{bm}
+
+% Font: Times-like
+\usepackage{lmodern}
+%
+% \usepackage{newtxtext,newtxmath}
+%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+%\usepackage[T1]{fontenc}
+
+% URL
+\usepackage{url}
+
+% Images
+\usepackage{graphicx}
+
+% Chemical formula
+\usepackage[version=3]{mhchem}
+
+% Copyright symbol
+\usepackage{textcomp}
+
+% Sideway table
+\usepackage{rotating}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes}
+
+% Appendix
+\usepackage[titletoc,toc]{appendix}
+
+% Add bibliography in TOC
+\usepackage[nottoc]{tocbibind}
+
+% Align table columns on decimal points
+\usepackage{dcolumn}
+
+% Screen
+\usepackage{ascmac}
+
+% Relative import
+\usepackage{import}
+
+% Subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+
+% pseudocode
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+% https://tex.stackexchange.com/questions/480600/representing-objects-classes-in-latex
+\algdef{SE}% flags used internally to indicate we're defining a new block statement
+[STRUCT]% new block type, not to be confused with loops or if-statements
+{Struct}% "\Struct{name}" will indicate the start of the struct declaration
+{EndStruct}% "\EndStruct" ends the block indent
+[1]% There is one argument, which is the name of the data structure
+{\textbf{struct} \textsc{#1}}% typesetting of the start of a struct
+{\textbf{end struct}}% typesetting the end of the struct
+
+% https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
+% \usepackage[section]{placeins}
+
+% https://stackoverflow.com/questions/1061112/eliminate-space-before-beginitemize
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+% Misc
+\usepackage[normalem]{ulem}
+
+% Rename bibliography section
+% https://latex.org/forum/viewtopic.php?t=28709
+\renewcommand{\bibname}{References}
+
+% https://tex.stackexchange.com/questions/22191/forcing-a-figure-strictly-on-a-separate-page
+\usepackage{afterpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% https://zrbabbler.hatenablog.com/entry/20120411/1334151482
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\set}[2]{\left\{ #1 \relmiddle| #2 \right\}}
+\DeclareMathOperator{\morethan}{>}
+
+\newcommand{\software}[1]{\textsc{#1}}
+\newcommand{\term}[1]{#1}
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\onlinecite}[1]{\cite{#1}}  % Just for backward compatibility
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
