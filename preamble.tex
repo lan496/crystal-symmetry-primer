@@ -11,8 +11,10 @@
 
 % Bibtex (load after hyperref)
 \usepackage[sort&compress,numbers]{natbib}
-\bibliographystyle{apsrev4-2}
 \usepackage{doi}
+% Inline citation
+\usepackage{bibentry}
+\nobibliography*
 
 % Mathematical features
 \usepackage{amsmath, amssymb}
@@ -97,6 +99,9 @@
 
 % https://tex.stackexchange.com/questions/22191/forcing-a-figure-strictly-on-a-separate-page
 \usepackage{afterpage}
+
+% Japanese with pdflatex
+\usepackage{CJKutf8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macros

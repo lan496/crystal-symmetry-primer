@@ -1,7 +1,30 @@
 \section{\label{sec:preliminary}Preliminary}
 
-\subsection{Recommended books and lecture notes}
+This document gives an introduction to crystallography on crystal symmetry and space groups intended for computational materials science.
+% Thus, this document takes another approach as a primer in the age of \texttt{Spglib}.
+We first consider group theoretic treatments of crystal symmetry in Secs.~\ref{sec:operation} and \ref{sec:group_primer}.
+Then, we analyze a group structure of space groups in Sec.~\ref{sec:group_structure}, and the classification of space groups in Sec.~\ref{sec:classification}.
+There are many conventions to take a representative among ``equivalent'' objects.
+We introduce some of the conventions to avoid pitfalls in Sec.~\ref{sec:convention}.
+The remaining sections are potpourris.
+In Sec.~\ref{sec:msg}, we consider a group structure of magnetic space groups and conventions to represent them.
+In Sec.~\ref{sec:normalizer}, we introduce normalizers of space groups, useful to treat the arbitrariness of transformation.
+In Sec.~\ref{sec:lattice}, we consider standard forms of integer matrices, which can be applied to supercell constructions and generalized regular meshes for Brillouin zone sampling.
 
-\subsection{International table for crystallography}
+There are already many impressive books and lectures covering the topic:
+\begin{itemize}
+    \item \bibentry{ITA2016}
+    \item \bibentry{Aroyo2021-qr}
+    \item \bibentry{Souvignier08}
+    \item \bibentry{muller2013symmetry}
+    \item \bibentry{glazer2012space}
+\end{itemize}
 
-\subsection{Spglib}
+In Japanse,
+\begin{itemize}
+    \item Yuji Tachikawa, \begin{CJK}{UTF8}{ipxm}\href{https://member.ipmu.jp/yuji.tachikawa/lectures/2018-butsurisuugaku3/}{物理数学 III (2018)}\end{CJK}
+    \item \begin{CJK}{UTF8}{ipxm}\href{http://pfwww.kek.jp/trainingcourse/bunken.html}{対称性・群論トレーニングコース}\end{CJK}
+    \item \begin{CJK}{UTF8}{ipxm}野田幸男, 結晶学と構造物性 入門から応用、実践まで (内田老鶴圃, 2017)\end{CJK}
+\end{itemize}
+
+If you find typos or errors, please open an \href{https://github.com/lan496/crystal-symmetry-primer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc}{issue} or \href{https://github.com/lan496/crystal-symmetry-primer/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc}{pull request}.
