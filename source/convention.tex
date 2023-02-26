@@ -4,10 +4,118 @@
 
 \subsection{Helmann--Mauguin symbol}
 
-Principal directions
+Convention for Hermann-Mauguin symbols is shown in Table~\ref{tab:hermann-mauguin}.
 
-How to read H-M symbols
+\begin{table}[tb]
+  \caption{lattice symmetry directions in three-dimensional space (ITA Table~2.1.3.1)}
+  \label{tab:hermann-mauguin}
+  \centering
+  \tiny
+  \begin{tabular}{llll}
+    Lattice system & Primary & Secondary & Tertiary  \\ \hline
+    triclinic                       & None & & \\
+    monoclinic (unique axis b)      & [010] & & \\
+    orthorhombic                    & [100] & [010] & [001] \\
+    tetragonal                      & [001] & $\langle 100 \rangle = [100][010]$ & $\langle 1\overline{1}0 \rangle = [110][1\overline{1}0]$ \\
+    rhombohedral(hexagonal axes)    & [001] & $\langle 100 \rangle = [100][010][\overline{11}0]$ \\
+    rhombohedral(rhombohedral axes) & [111] & $\langle 1\overline{1}0 \rangle = [1\overline{1}0][01\overline{1}][\overline{1}01]$ \\
+    hexagonal & [001] & $\langle 100 \rangle = [100][010][\overline{11}0]$ & $\langle 1\overline{1}0 \rangle = [1\overline{1}0][120][\overline{21}0]$ \\
+    cubic
+      & $\langle 001 \rangle = [100][010][001] $
+      & $\langle 111 \rangle = [111][1\overline{11}][\overline{1}11][\overline{11}1]$
+      & $\langle 110 \rangle = [1\overline{1}0] [110] [01\overline{1}] [011] [\overline{1}01] [101]$
+  \end{tabular}
+\end{table}
+
+\todo{How to read H-M symbols}
 
 \subsection{Standard settings in ITA}
+
+\subsubsection{Monoclinic system(ITA-2.1.3.15)}
+
+\todo{Fix unique axes}
+
+Axis settings for monoclinic systems are shown in Table~\ref{table-monoclinic-settings}.
+Cell choices for monoclinic systems are shown in Table~\ref{table-monoclinic-cellchoice} and Fig.~\ref{fig:monoclinic-choices}.
+
+\begin{table}[tb]
+  \centering
+  \small
+  \caption{settings of monoclinic system}
+  \label{table-monoclinic-settings}
+  \begin{tabular}{c|cccccc}
+    \hline
+    unique axis & $\mathbf{b}$ & $-\mathbf{b}$ & $\mathbf{c}$ & $-\mathbf{c}$ & $\mathbf{a}$ & $-\mathbf{a}$ \\
+    setting & $\mathbf{a\underline{b}c}$ & $\mathbf{c\underline{\overline{b}}a}$ & $\mathbf{ab\underline{c}}$ & $\mathbf{ba\underline{\overline{c}}}$ & $\mathbf{\underline{a}bc}$ & $\mathbf{\underline{\overline{a}}bc}$ \\
+    \hline
+    \begin{tabular}{c}
+    transformation \\ to $\mathbf{a\underline{b}c}$
+    \end{tabular} &
+      $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$ &
+      $\begin{pmatrix}0& 0&1 \\0& -1&0 \\1& 0&0\end{pmatrix}$ &
+      $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$ &
+      $\begin{pmatrix} 1&0&0 \\ 0&0&1 \\ 0&-1&0 \end{pmatrix}$ &
+      $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$ &
+      $\begin{pmatrix} 0&-1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix}$ \\
+    \hline
+    Cell choice 1 & $C \to C$ & $A \to C$ & $A \to C$ & $B \to C$ & $B \to C$ & $C \to C$ \\
+    Cell choice 2 & $A \to A$ & $C \to A$ & $B \to A$ & $A \to A$ & $C \to A$ & $B \to A$ \\
+    Cell choice 3 & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[tb]
+  \centering
+  \caption{transformation of cell choices in monoclinic system}
+  \label{table-monoclinic-cellchoice}
+  \begin{tabular}{c|ccc}
+    \hline
+    choice                 & $b1$                                                & $b2$                                                  & $b3$                                                  \\
+    \hline
+    transformation to $b1$ & $\begin{pmatrix} 1&0&0\\0&1&0\\0&0&1 \end{pmatrix}$ & $\begin{pmatrix} -1&0&1\\0&1&0\\-1&0&0 \end{pmatrix}$ & $\begin{pmatrix} 0&0&-1\\0&1&0\\1&0&-1 \end{pmatrix}$ \\
+    \hline
+    centering              & $C \to C$                                           & $A \to C$                                             & $I \to C$                                             \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=10cm]{figure/monoclinic_choices.eps}
+  \caption{choices of monoclinic system}
+  \label{fig:monoclinic-choices}
+\end{figure}
+
+\subsection{orthorhombic system}
+
+Axis settings for orthorhombic systems are shown in Table~\ref{table-orthorhombic-settings}.
+
+\begin{table}[tb]
+  \centering
+  \small
+  \caption{settings of orthorhombic system}
+  \label{table-orthorhombic-settings}
+  \begin{tabular}{c|cccccc}
+    \hline
+    settings & $\mathbf{abc}$ & $\mathbf{ba\overline{c}}$ & $\mathbf{cab}$ & $\mathbf{\overline{c}ba}$ & $\mathbf{bca}$ & $\mathbf{a\overline{c}b}$ \\
+    \hline
+    \begin{tabular}{c}
+    transformation \\ to $\mathbf{abc}$
+    \end{tabular} &
+      $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$ &
+      $\begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&-1 \end{pmatrix}$ &
+      $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$ &
+      $\begin{pmatrix} 0&0&-1 \\ 0&1&0 \\ 1&0&0 \end{pmatrix}$ &
+      $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$ &
+      $\begin{pmatrix} 1&0&0 \\ 0&0&-1 \\ 0&1&0 \end{pmatrix}$ \\
+    \hline
+    centering & $A \to A$ & $A \to B$ & $A \to C$ & $A \to C$ & $A \to B$ & $A \to A$ \\
+              & $B \to B$ & $B \to A$ & $B \to A$ & $B \to B$ & $B \to C$ & $B \to C$ \\
+              & $C \to C$ & $C \to C$ & $C \to B$ & $C \to A$ & $C \to A$ & $C \to B$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
 
 \subsection{Hall symbol}

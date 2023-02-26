@@ -1,11 +1,86 @@
 \section{\label{sec:group_structure}Group structure of space groups}
 
-\subsection{Definition of space group}
+\subsection{\label{sec:def_space_group}Definition of space group}
+
+Let $f$ be a crystal pattern.
+A space group of $f$ is defined as the stabilizer on $\mathcal{E}_{n}$.
+
+\begin{screen}
+  \begin{definition}[space group]
+    The stabilizer of crystal pattern $f$ on $\mathcal{E}_{n}$
+    \begin{align}
+      \mathcal{G} \coloneqq \mathrm{Stab}_{\mathcal{E}_{n}} (f) = \set{ g \in \mathcal{E}_{n} }{ g \cdot f = f }
+    \end{align}
+    is called \term{space group} if $\mathcal{T}(\mathcal{G}) \coloneqq \mathcal{T}_{n} \cap \mathcal{G}$ is isomorphic to a $n$-dimensional lattice.
+    For the space group $\mathcal{G}$, $\mathcal{T}(\mathcal{G})$ is called \term{translation subgroup} of $\mathcal{G}$.
+  \end{definition}
+\end{screen}
 
 \subsection{Point group}
 
+Let $\mathcal{G}$ be a space group.
+The translation subgroup $\mathcal{T}(\mathcal{G})$ is normal subgroup of $\mathcal{G}$:
+For any $ (\mathbf{W}, \mathbf{w}) \in \mathcal{G}$ and $(\mathbf{I}_{n}, \mathbf{t}) \in \mathcal{T}(\mathcal{G})$, one has
+\begin{align}
+  (\bm{W}, \bm{w}) (\bm{I}_{n}, \bm{t}) (\bm{W}, \bm{w})^{-1} = (\bm{I}_{n}, \bm{Wt}) \in \mathcal{T}(\mathcal{G}).
+\end{align}
+
+\begin{screen}
+  \begin{definition}[point group]
+    Let $\mathcal{G}$ be a space group.
+    The set of the linear part of $\mathcal{G}$ is called \term{point group} of $\mathcal{G}$
+    \begin{align}
+      \mathcal{P} \coloneqq \set{ \mathbf{W} }{ (\bm{W}, \bm{w}) \in \mathcal{G} }.
+    \end{align}
+    The point group $\mathcal{P}$ is isomorphic to the factor group $\mathcal{G} / \mathcal{T}(\mathcal{G})$.
+  \end{definition}
+\end{screen}
+
+We fix some basis vectors $(\bm{a}_{1}, \dots, \bm{a}_{n})$ of affine space, and act all mappings in $\mathcal{P}$ on the basis vectors.
+Since mapping in the point group $\mathcal{P}$ is an isometry, it does not change the norm of vectors.
+Therefore, there are only finitely many acted vectors because the maximum norm of acted vectors is bound by $\max_{i=1,\cdots,n} \mathbf{a}_{i}$.
+
+\begin{screen}
+  \begin{theorem}
+    The point group $\mathcal{P}$ of a space group $\mathcal{G}$ is finite.
+  \end{theorem}
+\end{screen}
+
+When we choose the lattice basis of $\mathcal{T}(\mathcal{G})$ as the basis vectors of the affine spaces, the translation subgroup $\mathcal{T}(\mathcal{G})$ is represented as $\set{ (\bm{I}_{n}, \bm{t}) }{ \bm{t} \in \mathbb{Z}^{n} }$.
+And the action of point group $\mathcal{P}$ is described as integer matrices.
+
 \subsection{Vector system}
 
-symmorphic and nonsymmorphic space groups
+In general, a space group is not specified only with a point group and translation subgroup.
+We need to determine a translation part of each symmetry operation.
 
-\subsection{Working example from plane group}
+\begin{screen}
+  \begin{definition}[vector system]
+    Let $\mathcal{P}$ be a point group of a space group $\mathcal{G}$.
+    The map $\bm{\tau}: \mathcal{P} \to \mathbb{R}^{n}$ is called a \term{vector system} if the map satisfies \term{cocycle condition}:
+    \begin{align}
+      \bm{\tau}(gh) = g \bm{\tau}(h) + \bm{\tau}(g) \, ( \mathrm{mod} \, \mathbb{Z}^{n}) \quad (\forall g, h \in \mathcal{P}).
+    \end{align}
+  \end{definition}
+\end{screen}
+
+We remark that we require the cocycle condition to have a vector system consistent with the product of two symmetry operations,
+\begin{align*}
+  \begin{pmatrix}
+    g & \bm{\tau}(g) \\
+    \bm{0}^{\top} & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    h & \bm{\tau}(h) \\
+    \bm{0}^{\top} & 1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    gh & g \bm{\tau}(h) + \bm{\tau}(g) \\
+    \bm{0}^{\top} & 1
+  \end{pmatrix}
+\end{align*}
+
+\todo{symmorphic and nonsymmorphic space groups}
+
+\subsection{Working examples from plane groups}

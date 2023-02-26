@@ -2,13 +2,37 @@
 
 \subsection{Definition}
 
+We mention that the affine group $\mathcal{A}_{n}$ is group:
+The identity $ \begin{pmatrix} \bm{I}_{n} & \bm{0} \\ \bm{0}^{\top} & 1 \end{pmatrix}$ is in $\mathcal{A}_{n}$.
+Letting $\begin{pmatrix} \bm{W}_{i} & \bm{w}_{i} \\ \bm{0}^{\top} & 1 \end{pmatrix} \in \mathcal{A}_{n} (i=1,2)$, the product of two affine mappings is also affine mapping,
+\begin{align}
+  \begin{pmatrix} \bm{W}_{1} & \bm{w}_{1} \\ \bm{0}^{\top} & 1 \end{pmatrix} \begin{pmatrix} \bm{W}_{2} & \bm{w}_{2} \\ \bm{0}^{\top} & 1 \end{pmatrix}
+    &=
+    \begin{pmatrix}
+      \bm{W}_{1} \bm{W}_{2} & \bm{W}_{1} \bm{w}_{2} + \bm{w}_{1} \\
+      \bm{0}^{T} & 1
+    \end{pmatrix}
+    \in \mathcal{A}_{n}.
+\end{align}
+The inverse of an affine mapping is also an affine mapping,
+\begin{align}
+  \begin{pmatrix} \bm{W}_{1} & \bm{w}_{1} \\ \bm{0}^{T} & 1 \end{pmatrix}
+  &=
+  \begin{pmatrix} \bm{W}_{1}^{-1} & -\bm{W}_{1}^{-1}\bm{w}_{1} \\ \bm{0}^{T} & 1 \end{pmatrix} \in \mathcal{A}_{n}.
+\end{align}
+
 \subsection{Abelian group}
 
 translation subgroup
 
 \subsection{Isomorphism, subgroup}
 
+\todo{Euclidean group is a subgroup of the affine group.}
+
+
 \subsection{Coset decomposition, normal subgroup, factor group}
+
+\todo{Translation subgroup is a normal subgroup of a space group}
 
 $\mathbb{Z}_{2}$ in $\mathbb{Z}_{4}$
 

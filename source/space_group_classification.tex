@@ -1,21 +1,335 @@
 \section{\label{sec:classification}Classification of space groups}
 
+\begin{tikzpicture}
+  \tikzset{nodestyle/.style={draw}};
+
+  \node[nodestyle] (family) {6 crystal families (Sec.~\ref{sec:crystal-family})};
+
+  \node[nodestyle, below left=0.5cm of family] (lattice-system) {7 lattice systems (Sec.~\ref{sec:lattice-system})};
+  \node[nodestyle, below=1cm of lattice-system] (bravais-class) {14 Bravais classes (Sec.~\ref{sec:bravais-class})};
+
+  \node[nodestyle, below right=0.5cm of family] (crystal-system) {7 crystal systems (Sec.~\ref{sec:crystal-system})};
+  \node[nodestyle, below=1cm of crystal-system] (geometric-class) {32 geometric crystal classes (Sec.~\ref{sec:geometric-class})};
+
+  \node[nodestyle, below=3cm of family] (arithmetic-class) {73 arithmetic crystal classes (Sec.~\ref{sec:arithmetic-crystal-class})};
+  \node[nodestyle, below=1cm of arithmetic-class] (affine) {219 affine space-group types (Sec.~\ref{sec:space-group-type})};
+  \node[nodestyle, below=1cm of affine] (spacegroup) {230 crystallographic space-group types (Sec.~\ref{sec:space-group-type})};
+
+  \draw (family) -- (lattice-system);
+  \draw (family) -- (crystal-system);
+
+  \draw (lattice-system) -- (bravais-class);
+  \draw (crystal-system) -- (geometric-class);
+
+  \draw (bravais-class) -- (arithmetic-class);
+  \draw (geometric-class) -- (arithmetic-class);
+
+  \draw (arithmetic-class) -- (affine);
+  \draw (affine) -- (spacegroup);
+\end{tikzpicture}
+
+We classify space groups in three dimensions.
+
 \subsection{Transformation matrix, origin shift}
 
-\subsection{219 affine space-group types}
+When we change the origin and basis vectors for the affine space from $O$ and $(\bm{a}_{1}, \bm{a}_{2} , \bm{a}_{3})$ to $\bm{p}$ and $(\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3})\bm{P}$, the components of point coordinates and affine mappings are also changed as follows.
 
-\subsection{230 space-group types}
+The point coordinates $\bm{x}$ is transformed to the new coordinates $\bm{x}'$
+\begin{align}
+  \bm{x}'
+  &= (\bm{P}, \bm{p})^{-1} \bm{x} \nonumber \\
+  &= \bm{P}^{-1} ( \bm{x} - \bm{p} ).
+\end{align}
 
-11 enantiomorphic pairs
+An affine mapping $(\bm{W}, \bm{w})$ is transformed to $(\bm{W}', \bm{w}')$
+\begin{align}
+  (\bm{W}', \bm{w}')
+  &= (\bm{P}, \bm{p})^{-1} (\bm{W}, \bm{w}) (\bm{P}, \bm{p}) \nonumber \\
+  &= \left( \bm{P}^{-1} \bm{W} \bm{P}, \bm{P}^{-1}(\bm{Wp} + \bm{w} - \bm{p}) \right).
+\end{align}
 
-\subsection{32 geometric crystal classes}
+The metric tensor $\bm{G}$ of the lattice spanned the basis vectors of the affine space is transformed to
+\begin{align}
+  \bm{G}' &= \bm{P}^{\top} \bm{GP}.
+\end{align}
 
-\subsection{14 Bravais types of lattices}
+\subsection{\label{sec:space-group-type}Affine space-group type and space-group type}
 
-limiting case
+It is natural to identify two space groups that are transformed into the another by changing coordinate systems.
 
-special metric
+\begin{screen}
+  \begin{definition}[affine space-group type]
+    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping,
+    \begin{align}
+      \exists (\bm{P}, \bm{p}) \in \mathcal{A}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'.
+    \end{align}
+    These space groups are also called \term{affinely equivalent}.
+  \end{definition}
+\end{screen}
 
-\subsection{7 crystal systems}
+It is nontrivial fact that affine equivalence completely identifies the isomorphism of space groups.
 
-\subsection{73 arithmetic crystal classes}
+\begin{screen}
+  \begin{theorem}[Bieberbach]
+    Two space groups are isomorphic if and only if they belong to the same affine type.
+  \end{theorem}
+\end{screen}
+
+In crystallography, a tighter classification of space groups is often used.
+That is, orientation-preserving affine mapping is only considered in transformations of coordinates systems \footnote{
+  Some people indicate ``space groups'' as space-group types in their terminology.
+  I think the clear distinction between space groups and space-group types makes our lives easier.
+}.
+
+\begin{screen}
+  \begin{definition}[space-group type]
+    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{(crystallographic) space-group type} if they are conjugate by some orientation-preserving affine mapping,
+    \begin{align}
+      \exists (\bm{P}, \bm{p}) \in \mathcal{A}^{+}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}',
+    \end{align}
+    where orientation-preserving affine mapping is an affine mapping whose linear part is positive,
+    \begin{align}
+      \mathcal{A}^{+}_{n} \coloneqq \set{ \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix} }{ \bm{W} \in \mathrm{GL}(n, \mathbb{R}), \det \bm{W} > 0, \bm{w} \in \mathbb{R}^{n} }.
+    \end{align}
+  \end{definition}
+\end{screen}
+
+A pair of affine space-groups types that belong to the different crystallographic space-group types are called \term{enantiomorphic pair}.
+For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\ref{table:enantiomorphic-pairs-3d}.
+
+\begin{table}[tb]
+  \centering
+  \caption{Enantiomorphic pairs in space groups}
+  \label{table:enantiomorphic-pairs-3d}
+  \begin{tabular}[h]{cc}
+    $P 4_{1}$ (76)         & $P 4_{3}$ (78) \\
+    $P 4_{1} 2 2$ (91)     & $P 4_{3} 2 2$ (95) \\
+    $P 4_{1} 2_{1} 2$ (92) & $P 4_{3} 2_{1} 2$ (96) \\
+    $P 3_{1}$ (144)        & $P 3_{2}$ (145) \\
+    $P 3_{1} 1 2$ (151)    & $P 3{2} 1 2$ (153) \\
+    $P 3_{1} 2 1$ (152)    & $P 3_{2} 2 1$ (154) \\
+    $P 6_{1}$ (169)        & $P 6_{5}$ (173) \\
+    $P 6_{2}$ (170)        & $P 6_{4}$ (172) \\
+    $P 6_{1} 2 2$ (178)    & $P 6_{5} 2 2$ (179) \\
+    $P 6_{2} 2 2$ (180)    & $P 6_{4} 2 2$ (181) \\
+    $P 4_{3} 3 2$ (212)    & $P 4_{1} 3 2$ (213)
+  \end{tabular}
+\end{table}
+
+\subsection{\label{sec:geometric-class}Geometric crystal class}
+
+We consider classification based on a point group of a space group.
+
+\begin{screen}
+  \begin{definition}[geometric crystal class]
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix,
+    \begin{align}
+      \exists \bm{P} \in \mathrm{GL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
+    \end{align}
+    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{geometric crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same geometric crystal class.
+  \end{definition}
+\end{screen}
+
+Two space groups belong to the same \term{Laue class} if point groups obtained by their point group with inversions belong to the same geometric crystal class (Table~\ref{tab:laue_class}).
+
+\begin{table}[tb]
+  \centering
+  \caption{Laue classes in space groups}
+  \label{tab:laue_class}
+  \begin{tabular}[h]{l|l}
+    \hline
+    Laue class       & Geometric crystal class \\ \hline
+    $\overline{1}$   & $1$, $\overline{1}$ \\
+    $2/m$            & $2$, $m$, $2/m$ \\
+    $mmm$            & $222$, $2mm$, $mmm$ \\
+    $\overline{3}$   & $3$, $\overline{3}$ \\
+    $\overline{3}m$  & $32$, $3m$, $\overline{3}m$ \\
+    $4/m$            & $4$, $\overline{4}$, $4/m$ \\
+    $4/mmm$          & $422$, $\overline{4}2m$, $4mm$, $4/mmm$ \\
+    $6/m$            & $6$, $\overline{6}$, $6/m$ \\
+    $6/mmm$          & $622$, $\overline{6}2m$, $6mm$, $6/mmm$ \\
+    $m\overline{3}$  & $23$, $m\overline{3}$ \\
+    $m\overline{3}m$ & $432$, $\overline{4}32$, $m\overline{3}m$ \\ \hline
+  \end{tabular}
+\end{table}
+
+\todo{$3m1$ and $31m$}
+
+\subsection{\label{sec:bravais-class}Bravais type of lattice and Bravais class}
+
+We consider classification based on a translation lattice of a space group.
+
+\begin{screen}
+  \begin{definition}[translation lattice]
+    A \term{translation lattice} $L$ of a space group $\mathcal{G}$ is a set of translation parts of translation subgroup of $\mathcal{G}$,
+    \begin{align}
+      L = \set{ \bm{t} }{ (\bm{I}_{3}, \bm{t}) \in \mathcal{G} }.
+    \end{align}
+  \end{definition}
+\end{screen}
+
+\begin{screen}
+  \begin{definition}[Bravais group]
+    A set of isometry mapping that pertains $L$ is called \term{Bravais group of $L$}.
+    Letting $\bm{G}$ be a metric tensor of $L$, Bravais group of $L$ is
+    \begin{align}
+      \mathcal{B}(L) \coloneqq \set{ \bm{W} \in \mathrm{GL}(3, \mathbb{Z}) }{ \bm{W}^{\top}\bm{GW} = \bm{G} }.
+    \end{align}
+  \end{definition}
+\end{screen}
+
+We mention that a Bravais group may change as a set by transforming primitive basis.
+
+\begin{screen}
+  \begin{definition}[Bravais type of lattice]
+    Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix,
+    \begin{align}
+      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \quad s.t. \quad \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
+    \end{align}
+  \end{definition}
+\end{screen}
+Remarkably, this definition of Bravais types of lattices is independent of choices for primitive basis.
+
+\begin{screen}
+  \begin{definition}[Bravais manifold]
+    Let $K$ be a subgroup of $\mathrm{GL}(3, \mathbb{Z})$.
+    A \term{space of metric tensors (Bravais manifold) of $K$} is the space of all metric tensors invariant with $K$,
+    \begin{align}
+      \bm{M}( K ) \coloneqq \set{ \bm{G} \in \mathbb{R}^{3 \times 3}_{\mathrm{sym}} }{ \bm{W}^{\top}\bm{G}\bm{W} = \bm{G} \quad (\forall \bm{W} \in K ) }
+    \end{align}
+  \end{definition}
+\end{screen}
+
+Let $L$ and $\mathcal{P}$ be a translation lattice and a point group of a space group $\mathcal{G}$, respectively.
+When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\mathcal{P})$, the translation lattice $L$ is called to have \term{spaciealized metric}.
+
+\todo{Add example of specialized metric and Euclidean normalizer}
+
+\begin{screen}
+  \begin{definition}[Bravais class]
+    Let $L$ be a lattice with a metric tensor $\bm{G}$.
+    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ and a translation lattice $L$ belongs to a \term{Bravais class corresponding to the Bravais type of $L$} if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate in $\mathrm{SL}(3, \mathbb{Z})$,
+    \begin{align}
+      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L)).
+    \end{align}
+  \end{definition}
+\end{screen}
+
+\todo{Note that the definition of Bravais classes is independent of whether a translation lattice is a specialized metric or not.}
+
+\begin{screen}
+  \begin{definition}[holohedry]
+    A subgroup $\mathcal{P}$ of $\mathrm{GL}(3, \mathbb{Z})$ is called \term{holohedry} if there is a lattice $L$ whose Bravais group belongs to the same geometric crystal class of $\mathcal{P}$.
+  \end{definition}
+\end{screen}
+
+\todo{limiting case from $mP$ to $oS$}
+
+\subsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
+
+\begin{screen}
+  \begin{definition}[arithmetic crystal class]
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix,
+    \begin{align}
+      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
+    \end{align}
+    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
+  \end{definition}
+\end{screen}
+
+\begin{screen}
+  \begin{definition}[Bravais arithmetic crystal class]
+    The arithmetic crystal class of a space group $\mathcal{G}$ is called a \term{Bravais arithmetic crystal class} if the point group of $\mathcal{G}$ is the Bravais group of the translation lattice $L$ of $\mathcal{G}$,
+    \begin{align}
+      \mathcal{P} = \mathcal{B}(L).
+    \end{align}
+  \end{definition}
+\end{screen}
+
+Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
+The definition of Bravais arithmetic crystal classes is compatible with that of Bravais types of lattices (see Table~\ref{table:arithmetic-class-3d}).
+
+\begin{table}[tb]
+  \centering
+  \caption{The correspondence of Bravais arithmetic crystal classes and Bravais types of lattices in three dimensions.}
+  \label{table:arithmetic-class-3d}
+  \begin{tabular}{l|l}
+    \hline
+    Bravais type of lattice & Bravais arithmetic crystal class \\ \hline
+    $aP$                    & $\overline{1}P$ (2)              \\ \hline
+    $mP$                    & $2/mP$ (10)                      \\
+    $mC$                    & $2/mC$ (12)                      \\ \hline
+    $oP$                    & $mmmP$ (47)                      \\
+    $oS$                    & $mmmC$ (65)                      \\
+    $oF$                    & $mmmF$ (69)                      \\
+    $oI$                    & $mmmI$ (71)                   \\ \hline
+    $tP$                    & $4/mmmP$ (123)                   \\
+    $tI$                    & $4/mmmI$ (139)                   \\ \hline
+    $hR$                    & $\overline{3}mR$ (166)           \\
+    $hP$                    & $6/mmmP$ (191)                   \\ \hline
+    $cP$                    & $m\overline{3}mP$ (221)          \\
+    $cF$                    & $m\overline{3}mF$ (225)          \\
+    $cI$                    & $m\overline{3}mI$ (229)          \\ \hline
+  \end{tabular}
+\end{table}
+
+\todo{Example: $cm$ and $pm$}
+
+\subsection{\label{sec:lattice-system}Lattice system}
+
+\begin{screen}
+  \begin{definition}[lattice system]
+    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class,
+    \begin{align}
+      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
+    \end{align}
+  \end{definition}
+\end{screen}
+
+\todo{definition of lattice system on space groups}
+
+Table~\ref{tab:lattice_system}
+
+\begin{table}[tb]
+  \centering
+  \caption{Lattice systems in space groups}
+  \label{tab:lattice_system}
+  \begin{tabular}[h]{lll}
+    \hline
+    Lattice system & Holohedry & Bravias types of lattices \\ \hline
+    Triclinic    & $\overline{1}$   & $aP$                   \\
+    Monoclinic   & $2/m$            & $mP$, $mS$             \\
+    Orthorhombic & $mmm$            & $oP$, $oS$, $oF$, $oI$ \\
+    Tetragonal   & $4/mmm$          & $tP$, $tI$             \\
+    Rhombohedral & $\overline{3}m$  & $hR$                   \\
+    Hexagonal    & $6/mmm$          & $hP$                   \\
+    Cubic        & $m\overline{3}m$ & $cP$, $cF$, $cI$       \\ \hline
+  \end{tabular}
+\end{table}
+
+\subsection{\label{sec:crystal-system}Crystal system}
+
+\todo{}
+
+Two point groups belong to the same crystal system if and only if the sets of Bravais type of lattices on which these point groups act coincide.
+
+Table~\ref{tab:crystal_system}
+
+\begin{table}[tb]
+  \centering
+  \caption{Crystal systems in space groups}
+  \label{tab:crystal_system}
+  \begin{tabular}{ll}
+    \hline
+    Crystal system & Geometric crystal classes                                \\ \hline
+    Triclinic      & $1, \overline{1}$                                        \\
+    Monoclinic     & $2/m, m, 2$                                              \\
+    Orthorhombic   & $mmm, mm2, 222$                                          \\
+    Tetragonal     & $4/mmm, \overline{4}2m, 4mm, 422, 4/m, \overline{4}, 4$  \\
+    Hexagonal      & $6/mmm, \overline{6}2m, 6mm, 622, 6/m, \overline{6}, 6$  \\
+    Trigonal       & $\overline{3}m, 3m, 32, \overline{3}, 3$                 \\
+    Cubic          & $m\overline{3}m, \overline{4}3m, 432, m\overline{3}, 23$ \\ \hline
+  \end{tabular}
+\end{table}
+
+\subsection{\label{sec:crystal-family}Crystal family}

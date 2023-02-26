@@ -1,9 +1,16 @@
 \section{\label{sec:lattice}Lattice computation}
 
+\subsection{Lattice, choice of basis vectors}
+
+The choice of basis vectors is not unique for a given lattice.
+A lattice spanned by basis vectors $( \bm{a}_{1}, \dots, \bm{a}_{n} )$ and a lattice spanned by
+\begin{align*}
+  ( \bm{a}_{1}', \dots, \bm{a}_{n}' ) \coloneqq ( \bm{a}_{1}, \dots, \bm{a}_{n} ) \bm{P} \quad (\bm{P} \in \mathbb{R}^{n \times n})
+\end{align*}
+coincide if and only if $\bm{P} \in \mathrm{SL}(n, \mathbb{Z})$, where $ \mathrm{SL}(n, \mathbb{Z})$ is the set of $n \times n$ unimodular matrices.
+
 \subsection{Delaunay reduction}
 
-\subsection{Choice of basis vectors, sublattice}
-
-\subsection{Hermite normal form}
+\subsection{Sublattice, Hermite normal form}
 
 \subsection{Smith normal form}
