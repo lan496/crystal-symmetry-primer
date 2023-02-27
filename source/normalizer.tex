@@ -4,8 +4,73 @@
 
 \subsection{Site symmetry group, Wyckoff position, asymmetric unit}
 
-\subsection{Euclidean normalizer}
+\subsection{Euclidean normalizer and affine normalizer}
 
 \subsection{Wyckoff set, equivalent descriptions of crystal structure}
 
-\subsection{Affine normalizer}
+\subsection{Derivation of Euclidean normalizer}
+
+If $( \bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, for all $(\bm{W}, \bm{w}) \in \mathcal{G}$, there exists a symmetry operation $(\bm{W}', \bm{w}') in \mathcal{G}$ such that
+\begin{align}
+    \det \bm{P} &\neq 0 \\
+    (\bm{P}, \bm{p}) (\bm{W}, \bm{w}) (\bm{P}, \bm{p})^{-1} &= (\bm{W}', \bm{w}'),
+\end{align}
+where
+\begin{align}
+  \bm{W}' &= \bm{P} \bm{W} \bm{P}^{-1} \\
+  \bm{w}' &= \bm{p} + \bm{Pw} - \bm{PW}\bm{P}^{-1}\bm{p}.
+\end{align}
+
+\subsubsection{Basis vectors of Euclidean normalizer}
+
+If $( \bm{E} | \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G}) $, for all $(\bm{W}, \bm{w} ) \in \mathcal{S}$, there exists a symmetry operation $(\bm{W}', \bm{w}' ) \in \mathcal{S}$ such that
+\begin{align}
+  \bm{W}' &= \bm{W} \\
+  \bm{w}' &= \bm{p} + \bm{w} - \bm{Wp}.
+\end{align}
+
+When we take a primitive basis, the translation lattice is identified as $\mathbb{Z}^{n}$.
+If $(\bm{W}, \bm{w} ), (\bm{W}, \bm{w}') \in \mathcal{S}$,
+\begin{align}
+  (\bm{W}, \bm{w}')^{-1} (\bm{W}, \bm{w}) = (\bm{E}, \bm{w} - \bm{w}' ) \in \mathcal{S}.
+\end{align}
+Thus, $\mathbf{w} - \mathbf{w}' \in \mathbb{Z}^{n}$.
+
+In summary, the condition that $(\bm{E}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$ is equivalent to
+\begin{align}
+  \label{eq:normalizer-basis}
+  (\bm{E} - \bm{W} ) \bm{p} = \bm{0} ( \mathrm{mod} \, \mathbb{Z}^{n} )
+\end{align}
+for all $(\bm{W}, \bm{w}) \in \mathcal{G}$.
+
+Conversely, a set of operations $(\bm{E}, \bm{p})$ satisfying Eq.~\eqref{eq:normalizer-basis} is a subgroup of $\mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$.
+
+The linear integer system of Eq.~\eqref{eq:normalizer-basis} can be solved by its Hermite or Smith normal form (see Sec.~\ref{sec:integer-linear-system}).
+
+Because the above discussion is independent of whether an operation is an isometry or not, basis vectors of the Euclidean normalizer and affine normalizer can coincide.
+
+\subsubsection{Linear part of Euclidean normalizer}
+If $(\bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, for all $(\bm{E}, \bm{w}) \in \mathcal{S}$, $(\bm{P}, \bm{p})$ satisfies the following condition at least
+\begin{align}
+  (\bm{P}, \bm{p}) (\bm{E}, \bm{w}) (\bm{P}, \bm{p})^{-1} = (\bm{E}, \bm{Pw}) \in \mathcal{G}.
+\end{align}
+Therefore, $\bm{P} \in \mathrm{GL}_{n}(\mathbf{Z})$.
+
+Similarly, considering $(\bm{P}, \bm{p} )^{-1} = (\bm{P}^{-1}, -\bm{P}^{-1}\bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{S})$, we obtain $\bm{A}^{-1} \in \mathrm{GL}_{n}(\mathbf{Z})$.
+Thus, $\bm{P}$ is a unimodular (integer) matrix.
+
+Moreover, $\bm{P}$ should belong to the Bravais group of the translation lattice, $\mathcal{B}(L)$, so that $(\bm{P}, \bm{p} )$ is an isometry.
+
+\subsubsection{Translation part of Euclidean normalizer}
+Let $\bm{P}$ be an element of Bravais group $\mathcal{B}(L)$.
+If $(\bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, the condition
+\begin{align}
+  (\bm{P}, \bm{p}) (\bm{W}, \bm{w}) (\bm{P}, \bm{p})^{-1} = (\bm{W}', \bm{w}') \in \mathcal{G}
+\end{align}
+gives
+\begin{align}
+    \label{eq:normalizer-translation-part}
+    (\bm{E} - \bm{W}' ) \bm{p} = \bm{w}' - \bm{Pw} \quad (\mathrm{mod}\, \mathbb{Z}^{n})
+    \quad (\forall ( \bm{W}, \bm{w} ) \in \mathcal{G} ).
+\end{align}
+Conversely, a set of operations $(\bm{P}, \bm{p})$ satisfying Eq.~\eqref{eq:normalizer-translation-part} is a subgroup of $\mathcal{E}_{n}$.

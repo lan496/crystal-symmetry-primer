@@ -2,8 +2,64 @@
 
 \subsection{Definition}
 
+% Magnetic space groups and magnetic symmetry operations
+We consider a \term{time-reversal operation} $1'$ and call an index-two group generated from $1'$ as a \term{time-reversal group} $\{ 1, 1' \} \, (\cong \mathbb{Z}_{2})$, where $1$ represents an identity operation.
+Let $\mathcal{M}$ be a subgroup of a direct product of $\mathrm{E}(3)$ and $\{ 1, 1' \}$.
+An element $(\bm{W}, \bm{w})\theta$ of $\mathcal{M}$ is called a \term{magnetic symmetry operation}, where $\theta \in \{ 1, 1' \}$ is a \term{time-reversal part} of the magnetic symmetry operation.
+A translation subgroup of $\mathcal{M}$ is defined similarly as
+\begin{align}
+  \mathcal{T}(\mathcal{M}) \coloneqq \set{ (\bm{E}, \bm{t}) }{ \exists \theta \in \{ 1, 1' \}, (\bm{E}, \bm{t})\theta \in \mathcal{M} }.
+\end{align}
+The subgroup $\mathcal{M}$ is called a \term{magnetic space group} (MSG) when its translation subgroup is generated from three independent translations.
+We write a \term{magnetic point group} of $\mathcal{M}$ as
+\begin{align}
+    \mathcal{P}(\mathcal{M})
+        &\coloneqq \set{ \bm{W}\theta }{ \exists \bm{w} \in \mathbb{R}^{3}, (\bm{W}, \bm{w})\theta \in \mathcal{M} }.
+\end{align}
+
+% Derived space groups
+We consider two derived space groups from $\mathcal{M}$.
+A \term{family space group} (FSG) of $\mathcal{M}$ is a space group obtained by ignoring time-reversal parts in magnetic symmetry operations:
+\begin{align}
+    \mathcal{F}(\mathcal{M}) \coloneqq \set{ (\bm{W}, \bm{w}) }{ \exists \theta \in \{ 1, 1' \}, (\bm{W}, \bm{w})\theta \in \mathcal{M} }.
+\end{align}
+A \term{maximal space subgroup} (XSG) of $\mathcal{M}$ is a space group obtained by removing antisymmetry operations:
+\begin{align}
+    \mathcal{D}(\mathcal{M}) \coloneqq \set{ (\bm{W}, \bm{w}) }{ (\bm{W}, \bm{w})1 \in \mathcal{M} }.
+\end{align}
+
+\subsection{Type of magnetic space group}
+
+The MSGs are classified into the following four types:
+\begin{itemize}
+  \item (Type I)
+    $\mathcal{M} = \mathcal{F}(\mathcal{M})1 = \mathcal{D}(\mathcal{M})1$:
+    The MSG $\mathcal{M}$ does not have antisymmetry operations.
+  \item (Type II)
+    $\mathcal{M} = \mathcal{F}(\mathcal{M})1 \,\sqcup\, \mathcal{F}(\mathcal{M})1', \mathcal{F}(\mathcal{M}) = \mathcal{D}(\mathcal{M})$:
+    The MSG $\mathcal{M}$ has antisymmetry operations and corresponding ordinary symmetry operations.
+  \item (Type III)
+    $\mathcal{M} = \mathcal{D}(\mathcal{M})1 \sqcup (\mathcal{F}(\mathcal{M}) \backslash \mathcal{D}(\mathcal{M})) 1'$ and $\mathcal{D}(\mathcal{M})$ is an index-two \term{translationengleiche} subgroup of $\mathcal{F}(\mathcal{M})$.
+    Thus, translation subgroups of $\mathcal{F}(\mathcal{M})$ and $\mathcal{D}(\mathcal{M})$ are identical.
+  \item (Type IV)
+    $\mathcal{M} = \mathcal{D}(\mathcal{M})1 \sqcup (\mathcal{F}(\mathcal{M}) \backslash \mathcal{D}(\mathcal{M})) 1'$ and $\mathcal{D}(\mathcal{M})$ is an index-two \term{klessengleiche} subgroup of $\mathcal{F}(\mathcal{M})$.
+    Thus, point groups of $\mathcal{F}(\mathcal{M})$ and $\mathcal{D}(\mathcal{M})$ are identical.
+\end{itemize}
+
+For a type-III MSG example, consider $\mathcal{M}_{\mathrm{rutile}} = \overline{P}4_{n}'2_{n}'$ (BNS number 136.498) in magnetic Hall symbols.
+The FSG and XSG of $\mathcal{M}_{\mathrm{rutile}}$ are $\overline{P}4_{n}2_{n}$ (No. 136) and $\overline{P}22_{n}$ (No. 58) in Hall symbols, respectively.
+% In magnetic Hall symbols, the original prime symbol ' in Hall symbols is replaced with the hat symbol $\hat{}$.
+
+% n=abc, (1/2,1/2,1/2)
+For a type-IV MSG example, consider $\mathcal{M}_{\mathrm{bcc}} = \overline{P}4231_{n}'$ (BNS number 221.97) in magnetic Hall symbols.
+The FSG and XSG of $\mathcal{M}_{\mathrm{bcc}}$ are $\overline{I}423$ (No. 229) and $\overline{P}423$ (No. 221) in Hall symbols, respectively.
+
 \subsection{BNS and OG symbols}
 
-\subsection{Construction type of magnetic space group}
+The BNS symbol represents each magnetic space-group type \cite{belov1957neronova}.
+We refer to a setting of the BNS symbol as a BNS setting: For types-I, -II, and -III MSGs, it uses the same setting as the standard ITA setting of the FSG.
+For type-IV MSG, it uses that of the XSG.
+
+\todo{Add table to compare BNS and OG symbols}
 
 \subsection{Magnetic Hall symbol}

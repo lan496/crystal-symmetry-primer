@@ -1,6 +1,10 @@
 \section{\label{sec:lattice}Lattice computation}
 
-\subsection{Lattice, choice of basis vectors}
+References: \cite{Hart2008,Hart2009,Cohen1993,CSE206A}
+
+\subsection{Lattice}
+
+\subsubsection{Choice of basis vectors of lattice}
 
 The choice of basis vectors is not unique for a given lattice.
 A lattice spanned by basis vectors $( \bm{a}_{1}, \dots, \bm{a}_{n} )$ and a lattice spanned by
@@ -9,8 +13,171 @@ A lattice spanned by basis vectors $( \bm{a}_{1}, \dots, \bm{a}_{n} )$ and a lat
 \end{align*}
 coincide if and only if $\bm{P} \in \mathrm{SL}(n, \mathbb{Z})$, where $ \mathrm{SL}(n, \mathbb{Z})$ is the set of $n \times n$ unimodular matrices.
 
-\subsection{Delaunay reduction}
+\subsubsection{Delaunay reduction}
 
-\subsection{Sublattice, Hermite normal form}
+\subsection{Sublattice, Hermite normal form, and their applications}
 
-\subsection{Smith normal form}
+\subsubsection{Sublattices and their equivalence}
+
+A \term{sublattice} is a subset of lattice $L$ obtained by removing some lattice points from $L$ \footnote{
+  In other fields than mathematics and crystallography, a substructure of a crystal structure is called a ``sublattice'', and a superstructure of a crystal structure is called a ``superlattice''.
+}.
+A set of basis vectors of the sublattice is identified with the transformation matrix $\bm{M}$ such that the original set of basis vectors $\bm{A}$ is transformed into a new set of basis vectors $\bm{AM}$.
+Therefore, the sublattice $L_{\bm{M}}$ is the set of lattice points expressed as
+\begin{align}
+  L_{\bm{M}} = \set{ \bm{AMn} }{ \bm{n} \in \mathbb{Z}^{3} }.
+\end{align}
+We refer to the absolute value of the determinant of $\bm{M}$, $\det \bm{M}$, as the index of the sublattice $L_{\bm{M}}$.
+The index is identical to the number of lattice points in the sublattice $L_{\bm{M}}$.
+
+\subsubsection{Hermite normal form}
+
+Let $\bm{U}$ be a three-dimensional square unimodular matrix, where all elements are integers and $\det \, \bm{U} = \pm 1$.
+Two matrices $\bm{M}$ and $\bm{MU}$ are equivalent in terms of lattice transformation.
+This means that they derive the same sublattice expressed as
+\begin{align}
+    L_{\bm{M}} = L_{\bm{MU}}.
+\end{align}
+
+Their representative can be the canonical form called the \term{Hermite normal form} (HNF).
+Any transformation matrix $\mathbf{M}$ can be converted to a unique form of the lower-triangular integer matrix, HNF, by multiplying the unimodular matrix $\mathbf{U'}$ from the right satisfying the relationship
+\begin{equation}
+    \label{eq:HNF}
+    \mathbf{MU'} =
+    \left(
+    \begin{array}{ccc}
+         a & 0 & 0 \\
+         b & c & 0 \\
+         d & e & f
+    \end{array}
+    \right),
+\end{equation}
+where $a > 0$, $0 \leq b < c$, $0 \leq d < f$, and $0 \leq e < f$.
+% More mathematically it results from the fact $\mathbf{U}^{-1}$ is also a unimodular matrix.
+% HNF
+The requirement that diagonal elements $a$, $c$, and $f$ are all positive eliminates equivalent basis vectors obtained by inversion.
+Also, the addition of a basis vector to another one or the subtraction of a basis vector from another one does not change the lattice itself.
+Thus, we can choose remainders of $f$ as $d$ and $e$, and a remainder of $c$ as $b$.
+
+Let us generalize HNFs to $m \times n$ integer matrix, $\bm{M}$.
+It has a (column-style) Hermite normal form $\bm{H}$ if there exists a unimodular matrices $\bm{R} \in \mathbb{Z}^{n \times n}$ such that $\bm{H}=\bm{MR}$ satisfied the following conditions
+\begin{enumerate}
+    \item $H_{ij} \geq 0 \quad (1 \leq i \leq m, 1 \leq j \leq n)$
+    \item $H_{ij} = 0 \quad (i < j , j > r)$
+    \item $H_{ij} < H_{ii} \quad (i > j, 1 \leq i \leq r)$
+    \item $r = \mathrm{rank} \bm{M}$
+\end{enumerate}
+
+If $\mathbf{M}$ is full rank, the Hermite normal form $\bm{H}$ is uniquely determined.
+
+\subsubsection{Example to compute HNF}
+
+\subsubsection{Union of lattices}
+
+Just compute HNF!
+
+\subsubsection{\label{sec:integer-linear-system}Integer linear system}
+
+For given $\bm{A} \in \mathbb{Z}^{m \times n}$ and $\bm{b} \in \mathbb{Z}^{m}$, consider to solve integer linear system $\bm{Ax} = \bm{b}$ in $\bm{x} \in \mathbb{Z}^{n}$.
+Let the Hermite normal form of $\bm{A}$ be $\bm{H} = \bm{AR}$, where $\bm{R}$ is unimodular and $\bm{H}$ is lower triangular.
+The given linear system is
+\begin{align}
+  \begin{pmatrix}
+    H_{11} &        & \bm{O} & \vdots     \\
+    \vdots & \ddots &        & \bm{0} \\
+    H_{r1} & \ldots & H_{rr} & \vdots     \\
+    \ldots & \bm{0} & \ldots & \bm{O} \\
+  \end{pmatrix}
+  \bm{y} = \bm{b}
+\end{align}
+where $\mathbf{y} \coloneqq \bm{R}^{-1}\bm{x}$.
+A special solution, $\bm{x}_{\mathrm{special}} = \bm{R}\bm{y}_{\mathrm{special}}$, is determined by Gaussian elimination if exists.
+A general solution for $\bm{Hy}=\bm{0}$ is given by
+\begin{align}
+  \bm{y} = \begin{pmatrix} 0 \\ \vdots \\ 0 \\ n_{r+1} \\ \vdots \\ n_{m} \end{pmatrix}
+        \quad (\forall n_{r+1},\cdots, n_{m} \in \mathbb{Z}).
+\end{align}
+
+\subsection{Smith normal form and its applications}
+
+\subsubsection{Distinct lattice points in sublattice}
+
+When we consider the translational symmetry of a sublattice $L_{\bm{M}}$, two lattice points $\bm{m}, \bm{m}$ are equivalent if the distance between the two lattice points is a translation of $L_{\bm{M}}$, that is,
+\begin{align}
+  \label{eq:equiv-lattice-points}
+  \bm{m} - \bm{m}' \in \bm{M}\mathbb{Z}^{3}.
+\end{align}
+
+The SNF of the transformation matrix $\mathbf{M}$ is useful to concretely write down Eq.~\eqref{eq:equiv-lattice-points}.
+The SNF is one of the decompositions of an integer matrix $\mathbf{M}$ as
+\begin{align}
+  \label{eq:SNF}
+  \bm{S} = \bm{PMQ},
+\end{align}
+where $\bm{P}$ and $\bm{Q}$ are unimodular matrices, and $\mathbf{S}$ is a diagonal integer matrix,
+\begin{align}
+  \bm{S} =
+      \begin{pmatrix}
+          S_{11} & 0 & 0 \\
+          0 & S_{22} & 0 \\
+          0 & 0 & S_{33}
+      \end{pmatrix}.
+\end{align}
+Here $S_{11}$ is a divisor of $S_{22}$, and $S_{22}$ is a divisor of $S_{33}$.
+We can rewrite Eq.~\eqref{eq:equiv-lattice-points} with Eq.~\eqref{eq:SNF} as
+\begin{align}
+  \label{eq:equiv-represents}
+  [\bm{Pm}]_{\bm{S}} = [\bm{Pm}']_{\bm{S}},
+\end{align}
+where $[\cdot]_{\bm{S}}$ indicates to take modulus for the $i$th row by $S_{ii}$.
+We mention that the range of $[\cdot]_{\mathbf{S}}$ is $\mathbb{Z}_{S_{11}} \times \mathbb{Z}_{S_{22}} \times \mathbb{Z}_{S_{33}}$ because a value of the $i$th row is a remainder by $S_{ii}$.
+
+\subsubsection{Smith normal form}
+
+Let $\bm{M}$ be $m \times n$ integer matrix.
+There exist some unimodular matrices $\bm{L} \in \mathbb{Z}^{m \times m}$ and $\bm{R} \in \mathbb{Z}^{n \times n}$ such that
+
+\begin{align}
+    \bm{D}
+    \coloneqq
+    \bm{LMR}
+    =
+    \begin{pmatrix}
+        d_{1}  &        & \bm{O} & \bm{0} \\
+               & \ddots &        & \vdots \\
+        \bm{O} &        & d_{r}  & \bm{0} \\
+        \bm{0} & \cdots & \bm{0} & \bm{O}
+    \end{pmatrix},
+\end{align}
+where $d_{i}$ is positive integer and $d_{i+1}$ devides $d_{i}$.
+Then $\bm{D}$ is called Smith normal form.
+
+\subsubsection{Extended Euclidean algorithm}
+
+\url{https://twitter.com/tmaehara/status/1431205927353528321}
+
+\subsubsection{Procedure to compute SNF}
+
+\begin{align*}
+  \begin{pmatrix}        2 & 4 & 4 \\        -6 & 6 & 12 \\        10 & -4 & -16 \\    \end{pmatrix}
+  &\to    \begin{pmatrix}        2 & 0 & 0 \\        -6 & 18 & 24 \\        10 & -24 & -36 \\    \end{pmatrix}
+  \to    \begin{pmatrix}        2 & 0 & 0 \\        0 & 18 & 24 \\        0 & -24 & -36 \\    \end{pmatrix}    \\
+  &\to    \begin{pmatrix}        2 & 0 & 0 \\        0 & 18 & 6 \\        0 & -24 & -12 \\     \end{pmatrix}
+  \to    \begin{pmatrix}        2 & 0 & 0 \\        0 & 18 & 6 \\        0 & 12 & 0 \\    \end{pmatrix}    \\
+  &\to    \begin{pmatrix}        2 & 0 & 0 \\        0 & 6 & 18 \\        0 & 0 & 12 \\    \end{pmatrix}
+  \to    \begin{pmatrix}        2 & 0 & 0 \\        0 & 6 & 0 \\        0 & 0 & 12 \\    \end{pmatrix}
+\end{align*}
+
+\subsubsection{Frobenius congruent}
+
+For given $\bm{A} \in \mathbb{Z}^{m \times n}$ and $\bm{b} \in \mathbb{Z}^{m}$, consider to solve Frobenius congruent $\bm{Ax} \equiv \bm{b} \, (\mathrm{mod}\, \mathbb{R}/\mathbb{Z})$ for $\bm{x} \in \mathbb{R}^{n}$.
+Let SNF of $\bm{A}$ be $\bm{D} = \bm{LAR}$, where $\bm{L}$ and $\bm{R}$ are unimodular matrices.
+\begin{align}
+  \bm{LAx} &= \bm{Lb} + \mathbb{Z}^{n} \\
+  \bm{Dy}  &= \bm{v} + \mathbb{Z}^{n} \quad \mbox{where}\, \bm{y}:= \bm{R}^{-1} \bm{x},\, \bm{v}:= \bm{Lb} \\
+  \bm{y}
+    &= \begin{pmatrix} \frac{v_{1}}{D_{11}} \\ \vdots \\ \frac{v_{r}}{D_{rr}} \\ 0 \\ \vdots \\ 0 \end{pmatrix}
+        + \begin{pmatrix} \frac{1}{D_{11}} n_{1} \\ \vdots \\ \frac{1}{D_{rr}} n_{r} \\ 0 \\ \vdots \\ 0 \end{pmatrix}
+        + \begin{pmatrix} 0 \\ \vdots \\ 0 \\ a_{r+1} \\ \vdots \\ a_{m} \end{pmatrix}
+        \quad (\forall n_{1}, \cdots, n_{r} \in \mathbb{Z}, \forall a_{r+1}, \cdots, a_{m} \in \mathbb{R})
+\end{align}
