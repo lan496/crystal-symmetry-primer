@@ -18,9 +18,17 @@
 
 % Mathematical features
 \usepackage{amsmath, amssymb}
-\usepackage{amsthm}
 \usepackage{mathtools}
+
+% Theorems
+% https://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{them}{Theorem}[section]  % Reset numbering for each section
 \theoremstyle{definition}
+\newtheorem{defn}[them]{Definition}
+\newtheorem{prop}[them]{Proposition}
+
 \usepackage{bm}
 
 % Font: Times-like

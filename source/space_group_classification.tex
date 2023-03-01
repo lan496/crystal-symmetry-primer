@@ -58,13 +58,13 @@ The metric tensor $\bm{G}$ of the lattice spanned the basis vectors of the affin
 It is natural to identify two space groups that are transformed into the another by changing coordinate systems.
 
 \begin{screen}
-  \begin{definition}[affine space-group type]
+  \begin{defn}[affine space-group type]
     Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping,
     \begin{align}
       \exists (\bm{P}, \bm{p}) \in \mathcal{A}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'.
     \end{align}
     These space groups are also called \term{affinely equivalent}.
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 It is nontrivial fact that affine equivalence completely identifies the isomorphism of space groups.
@@ -76,13 +76,13 @@ It is nontrivial fact that affine equivalence completely identifies the isomorph
 \end{screen}
 
 In crystallography, a tighter classification of space groups is often used.
-That is, orientation-preserving affine mapping is only considered in transformations of coordinates systems \footnote{
+That is, orientation-preserving affine mapping is only considered in transformations of coordinates systems\footnote{
   Some people indicate ``space groups'' as space-group types in their terminology.
   I think the clear distinction between space groups and space-group types makes our lives easier.
 }.
 
 \begin{screen}
-  \begin{definition}[space-group type]
+  \begin{defn}[space-group type]
     Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{(crystallographic) space-group type} if they are conjugate by some orientation-preserving affine mapping,
     \begin{align}
       \exists (\bm{P}, \bm{p}) \in \mathcal{A}^{+}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}',
@@ -91,7 +91,7 @@ That is, orientation-preserving affine mapping is only considered in transformat
     \begin{align}
       \mathcal{A}^{+}_{n} \coloneqq \set{ \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix} }{ \bm{W} \in \mathrm{GL}(n, \mathbb{R}), \det \bm{W} > 0, \bm{w} \in \mathbb{R}^{n} }.
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 A pair of affine space-groups types that belong to the different crystallographic space-group types are called \term{enantiomorphic pair}.
@@ -121,13 +121,13 @@ For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\re
 We consider classification based on a point group of a space group.
 
 \begin{screen}
-  \begin{definition}[geometric crystal class]
+  \begin{defn}[geometric crystal class]
     Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix,
     \begin{align}
       \exists \bm{P} \in \mathrm{GL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
     \end{align}
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{geometric crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same geometric crystal class.
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 Two space groups belong to the same \term{Laue class} if point groups obtained by their point group with inversions belong to the same geometric crystal class (Table~\ref{tab:laue_class}).
@@ -160,44 +160,44 @@ Two space groups belong to the same \term{Laue class} if point groups obtained b
 We consider classification based on a translation lattice of a space group.
 
 \begin{screen}
-  \begin{definition}[translation lattice]
+  \begin{defn}[translation lattice]
     A \term{translation lattice} $L$ of a space group $\mathcal{G}$ is a set of translation parts of translation subgroup of $\mathcal{G}$,
     \begin{align}
       L = \set{ \bm{t} }{ (\bm{I}_{3}, \bm{t}) \in \mathcal{G} }.
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 \begin{screen}
-  \begin{definition}[Bravais group]
+  \begin{defn}[Bravais group]
     A set of isometry mapping that pertains $L$ is called \term{Bravais group of $L$}.
     Letting $\bm{G}$ be a metric tensor of $L$, Bravais group of $L$ is
     \begin{align}
       \mathcal{B}(L) \coloneqq \set{ \bm{W} \in \mathrm{GL}(3, \mathbb{Z}) }{ \bm{W}^{\top}\bm{GW} = \bm{G} }.
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 We mention that a Bravais group may change as a set by transforming primitive basis.
 
 \begin{screen}
-  \begin{definition}[Bravais type of lattice]
+  \begin{defn}[Bravais type of lattice]
     Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix,
     \begin{align}
       \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \quad s.t. \quad \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 Remarkably, this definition of Bravais types of lattices is independent of choices for primitive basis.
 
 \begin{screen}
-  \begin{definition}[Bravais manifold]
+  \begin{defn}[Bravais manifold]
     Let $K$ be a subgroup of $\mathrm{GL}(3, \mathbb{Z})$.
     A \term{space of metric tensors (Bravais manifold) of $K$} is the space of all metric tensors invariant with $K$,
     \begin{align}
       \bm{M}( K ) \coloneqq \set{ \bm{G} \in \mathbb{R}^{3 \times 3}_{\mathrm{sym}} }{ \bm{W}^{\top}\bm{G}\bm{W} = \bm{G} \quad (\forall \bm{W} \in K ) }
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 Let $L$ and $\mathcal{P}$ be a translation lattice and a point group of a space group $\mathcal{G}$, respectively.
@@ -206,21 +206,21 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 \todo{Add example of specialized metric and Euclidean normalizer}
 
 \begin{screen}
-  \begin{definition}[Bravais class]
+  \begin{defn}[Bravais class]
     Let $L$ be a lattice with a metric tensor $\bm{G}$.
     A space group $\mathcal{G}$ with a point group $\mathcal{P}$ and a translation lattice $L$ belongs to a \term{Bravais class corresponding to the Bravais type of $L$} if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate in $\mathrm{SL}(3, \mathbb{Z})$,
     \begin{align}
       \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L)).
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 \todo{Note that the definition of Bravais classes is independent of whether a translation lattice is a specialized metric or not.}
 
 \begin{screen}
-  \begin{definition}[holohedry]
+  \begin{defn}[holohedry]
     A subgroup $\mathcal{P}$ of $\mathrm{GL}(3, \mathbb{Z})$ is called \term{holohedry} if there is a lattice $L$ whose Bravais group belongs to the same geometric crystal class of $\mathcal{P}$.
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 \todo{limiting case from $mP$ to $oS$}
@@ -228,22 +228,22 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 \subsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
 
 \begin{screen}
-  \begin{definition}[arithmetic crystal class]
+  \begin{defn}[arithmetic crystal class]
     Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix,
     \begin{align}
       \exists \bm{P} \in \mathrm{SL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
     \end{align}
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 \begin{screen}
-  \begin{definition}[Bravais arithmetic crystal class]
+  \begin{defn}[Bravais arithmetic crystal class]
     The arithmetic crystal class of a space group $\mathcal{G}$ is called a \term{Bravais arithmetic crystal class} if the point group of $\mathcal{G}$ is the Bravais group of the translation lattice $L$ of $\mathcal{G}$,
     \begin{align}
       \mathcal{P} = \mathcal{B}(L).
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
@@ -278,12 +278,12 @@ The definition of Bravais arithmetic crystal classes is compatible with that of 
 \subsection{\label{sec:lattice-system}Lattice system}
 
 \begin{screen}
-  \begin{definition}[lattice system]
+  \begin{defn}[lattice system]
     Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class,
     \begin{align}
       \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
     \end{align}
-  \end{definition}
+  \end{defn}
 \end{screen}
 
 \todo{definition of lattice system on space groups}
