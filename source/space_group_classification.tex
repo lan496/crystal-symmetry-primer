@@ -30,29 +30,6 @@
 
 We classify space groups in three dimensions.
 
-\subsection{Transformation matrix, origin shift}
-
-When we change the origin and basis vectors for the affine space from $O$ and $(\bm{a}_{1}, \bm{a}_{2} , \bm{a}_{3})$ to $\bm{p}$ and $(\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3})\bm{P}$, the components of point coordinates and affine mappings are also changed as follows.
-
-The point coordinates $\bm{x}$ is transformed to the new coordinates $\bm{x}'$
-\begin{align}
-  \bm{x}'
-  &= (\bm{P}, \bm{p})^{-1} \bm{x} \nonumber \\
-  &= \bm{P}^{-1} ( \bm{x} - \bm{p} ).
-\end{align}
-
-An affine mapping $(\bm{W}, \bm{w})$ is transformed to $(\bm{W}', \bm{w}')$
-\begin{align}
-  (\bm{W}', \bm{w}')
-  &= (\bm{P}, \bm{p})^{-1} (\bm{W}, \bm{w}) (\bm{P}, \bm{p}) \nonumber \\
-  &= \left( \bm{P}^{-1} \bm{W} \bm{P}, \bm{P}^{-1}(\bm{Wp} + \bm{w} - \bm{p}) \right).
-\end{align}
-
-The metric tensor $\bm{G}$ of the lattice spanned the basis vectors of the affine space is transformed to
-\begin{align}
-  \bm{G}' &= \bm{P}^{\top} \bm{GP}.
-\end{align}
-
 \subsection{\label{sec:space-group-type}Affine space-group type and space-group type}
 
 It is natural to identify two space groups that are transformed into the another by changing coordinate systems.
@@ -97,7 +74,7 @@ That is, orientation-preserving affine mapping is only considered in transformat
 A pair of affine space-groups types that belong to the different crystallographic space-group types are called \term{enantiomorphic pair}.
 For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\ref{table:enantiomorphic-pairs-3d}.
 
-\begin{table}[tb]
+\begin{table}[htb]
   \centering
   \caption{Enantiomorphic pairs in space groups}
   \label{table:enantiomorphic-pairs-3d}
@@ -132,7 +109,7 @@ We consider classification based on a point group of a space group.
 
 Two space groups belong to the same \term{Laue class} if point groups obtained by their point group with inversions belong to the same geometric crystal class (Table~\ref{tab:laue_class}).
 
-\begin{table}[tb]
+\begin{table}[htb]
   \centering
   \caption{Laue classes in space groups}
   \label{tab:laue_class}
@@ -249,7 +226,7 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
 The definition of Bravais arithmetic crystal classes is compatible with that of Bravais types of lattices (see Table~\ref{table:arithmetic-class-3d}).
 
-\begin{table}[tb]
+\begin{table}[htb]
   \centering
   \caption{The correspondence of Bravais arithmetic crystal classes and Bravais types of lattices in three dimensions.}
   \label{table:arithmetic-class-3d}
@@ -290,7 +267,7 @@ The definition of Bravais arithmetic crystal classes is compatible with that of 
 
 Table~\ref{tab:lattice_system}
 
-\begin{table}[tb]
+\begin{table}[htb]
   \centering
   \caption{Lattice systems in space groups}
   \label{tab:lattice_system}
@@ -315,7 +292,7 @@ Two point groups belong to the same crystal system if and only if the sets of Br
 
 Table~\ref{tab:crystal_system}
 
-\begin{table}[tb]
+\begin{table}[htb]
   \centering
   \caption{Crystal systems in space groups}
   \label{tab:crystal_system}

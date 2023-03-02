@@ -9,12 +9,31 @@ A space group of $f$ is defined as the stabilizer on $\mathcal{E}_{n}$.
   \begin{defn}[space group]
     The stabilizer of crystal pattern $f$ on $\mathcal{E}_{n}$
     \begin{align}
-      \mathcal{G} \coloneqq \mathrm{Stab}_{\mathcal{E}_{n}} (f) = \set{ g \in \mathcal{E}_{n} }{ g \cdot f = f }
+      \mathcal{G} \coloneqq \mathrm{Stab}_{\mathcal{E}_{n}} (f) = \set{ g \in \mathcal{E}_{n} }{ g f = f }
     \end{align}
     is called \term{space group} if $\mathcal{T}(\mathcal{G}) \coloneqq \mathcal{T}_{n} \cap \mathcal{G}$ is isomorphic to a $n$-dimensional lattice.
     For the space group $\mathcal{G}$, $\mathcal{T}(\mathcal{G})$ is called \term{translation subgroup} of $\mathcal{G}$.
   \end{defn}
 \end{screen}
+
+The above definition is for space groups in a broad sense.
+In a narrow sense, the space group of a stabilizer of a three-dimensional crystal pattern with a three-dimensional translational subgroup.
+The other symmetry groups for crystal patterns are summarized in Table~\ref{tab:symmetry_groups}.
+
+\begin{table}[htb]
+  \centering
+  \caption{Symmetry groups of $n$-dimensional crystal patterns with $r$-dimensional translations.}
+  \label{tab:symmetry_groups}
+  \begin{tabular}[h]{cccc}
+    $n$ & $r$ & Symmetry group & Table \\
+    \hline
+    2 & 1 & Frieze group & Section 2.1 of ITE \cite{ITE2010} \\
+    2 & 2 & Plane group  & Section 2.2 of ITA \cite{ITA2016} \\
+    3 & 1 & Rod group    & Section 3.1 of ITE \cite{ITE2010} \\
+    3 & 2 & Layer group  & Section 4.1 of ITE \cite{ITE2010} \\
+    3 & 3 & Space group  & Section 2.3 of ITA \cite{ITA2016} \\
+  \end{tabular}
+\end{table}
 
 \subsection{Point group}
 
@@ -27,60 +46,184 @@ For any $ (\mathbf{W}, \mathbf{w}) \in \mathcal{G}$ and $(\mathbf{I}_{n}, \mathb
 
 \begin{screen}
   \begin{defn}[point group]
-    Let $\mathcal{G}$ be a space group.
-    The set of the linear part of $\mathcal{G}$ is called \term{point group} of $\mathcal{G}$
+    The set of the linear parts of a space group $\mathcal{G}$ is called \term{point group} of $\mathcal{G}$
     \begin{align}
-      \mathcal{P} \coloneqq \set{ \mathbf{W} }{ (\bm{W}, \bm{w}) \in \mathcal{G} }.
+      \mathcal{P}(\mathcal{G}) \coloneqq \set{ \mathbf{W} }{ (\bm{W}, \bm{w}) \in \mathcal{G} }.
     \end{align}
-    The point group $\mathcal{P}$ is isomorphic to the factor group $\mathcal{G} / \mathcal{T}(\mathcal{G})$.
+    The point group $\mathcal{P}(\mathcal{G})$ is isomorphic to the factor group $\mathcal{G} / \mathcal{T}(\mathcal{G})$.
   \end{defn}
 \end{screen}
 
-We fix some basis vectors $(\bm{a}_{1}, \dots, \bm{a}_{n})$ of affine space, and act all mappings in $\mathcal{P}$ on the basis vectors.
-Since mapping in the point group $\mathcal{P}$ is an isometry, it does not change the norm of vectors.
-Therefore, there are only finitely many acted vectors because the maximum norm of acted vectors is bound by $\max_{i=1,\cdots,n} \mathbf{a}_{i}$.
+The homomorphism $\mathcal{G} \in (\bm{W}, \bm{w}) \mapsto \bm{W} \in \mathcal{P}(\mathcal{G})$ gives the isomorphism between $\mathcal{G} / \mathcal{T}(\mathcal{G})$ and $\mathcal{P}(\mathcal{G})$.
+
+We fix some basis vectors $(\bm{a}_{1}, \dots, \bm{a}_{n})$ of affine space, and act all mappings in point group $\mathcal{P}$ on the basis vectors.
+Since affine mappings in the point group $\mathcal{P}$ are isometry, it does not change the norm of vectors.
+Therefore, there are only finitely many acted vectors because the maximum norm of acted vectors is bound by $\max_{i=1,\dots,n} \mathbf{a}_{i}$.
 
 \begin{screen}
-  \begin{theorem}
+  \begin{them}
     The point group $\mathcal{P}$ of a space group $\mathcal{G}$ is finite.
-  \end{theorem}
+  \end{them}
 \end{screen}
 
 When we choose the lattice basis of $\mathcal{T}(\mathcal{G})$ as the basis vectors of the affine spaces, the translation subgroup $\mathcal{T}(\mathcal{G})$ is represented as $\set{ (\bm{I}_{n}, \bm{t}) }{ \bm{t} \in \mathbb{Z}^{n} }$.
 And the action of point group $\mathcal{P}$ is described as integer matrices.
 
-\subsection{Vector system}
+\subsection{Symmorphic and non-symmorphic space groups}
 
-In general, a space group is not specified only with a point group and translation subgroup.
-We need to determine a translation part of each symmetry operation.
+The translation subgroup of space group $\mathcal{G}$ can be chosen to be $\mathcal{T} = \mathbb{Z}^{n}$ by choosing primitive basis vectors.
+Also, the point group of $\mathcal{G}$ is a finite subgroup $\mathcal{P}$ of $\mathrm{GL}(n, \mathbb{Z})$.
+In general, a space group is not specified only with the translation subgroup $\mathcal{T}$ and point group $\mathcal{P}$.
+We need to determine a translation part $\bm{\tau}(\bm{W})$ of each linear part $\bm{W} \in \mathcal{P}$.
+We can construct $\mathcal{G}$ from $\mathcal{T}$, $\mathcal{{P}}$, and $\bm{\tau}$ as
+\begin{align}
+  \mathcal{G} = \set{
+    \begin{pmatrix}
+      \bm{W} & \bm{\tau}(\bm{W}) + \bm{t} \\
+      \bm{0}^{\top} & 1 \\
+    \end{pmatrix}
+  } {
+    \bm{W} \in \mathcal{P}, \bm{t} \in \mathbb{Z}^{n}
+  }.
+\end{align}
 
-\begin{screen}
-  \begin{defn}[vector system]
-    Let $\mathcal{P}$ be a point group of a space group $\mathcal{G}$.
-    The map $\bm{\tau}: \mathcal{P} \to \mathbb{R}^{n}$ is called a \term{vector system} if the map satisfies \term{cocycle condition}:
-    \begin{align}
-      \bm{\tau}(gh) = g \bm{\tau}(h) + \bm{\tau}(g) \, ( \mathrm{mod} \, \mathbb{Z}^{n}) \quad (\forall g, h \in \mathcal{P}).
-    \end{align}
-  \end{defn}
-\end{screen}
-
-We remark that we require the cocycle condition to have a vector system consistent with the product of two symmetry operations,
+Because the addition of lattice translation into $\bm{\tau}$ gives the same space group, it is sufficient to confine the range of $\bm{\tau}$ as $\bm{\tau}: \mathcal{P} \to [0, 1)^{n}$.
+Furthermore, the map $\bm{\tau}$ should satisfy a \term{cocycle condition}
+\begin{align}
+  \label{eq:cocycle_condition}
+  \bm{\tau}(\bm{W}\bm{W}') \equiv \bm{\tau}(\bm{W}) + \bm{W} \bm{\tau}(\bm{W}') \quad ( \mathrm{mod} \, \mathbb{Z}^{n})
+\end{align}
+for all $\bm{W}, \bm{W}' \in \mathcal{P}$ so that a vector system consistent with the product of two symmetry operations:
 \begin{align*}
   \begin{pmatrix}
-    g & \bm{\tau}(g) \\
+    \bm{W} & \bm{\tau}(\bm{W}) \\
     \bm{0}^{\top} & 1
   \end{pmatrix}
   \begin{pmatrix}
-    h & \bm{\tau}(h) \\
+    \bm{W}' & \bm{\tau}(\bm{W}') \\
     \bm{0}^{\top} & 1
   \end{pmatrix}
   =
   \begin{pmatrix}
-    gh & g \bm{\tau}(h) + \bm{\tau}(g) \\
+    \bm{W}\bm{W}' & \bm{\tau}(\bm{W}) + \bm{W} \bm{\tau}(\bm{W}') \\
     \bm{0}^{\top} & 1
+  \end{pmatrix}.
+\end{align*}
+In particular, $\bm{\tau}(\bm{I}_{n}) \equiv \bm{0} \, (\mathrm{mod}\, \mathbb{Z}^{3})$.
+
+\begin{screen}
+  \begin{defn}[vector system \cite{Eick2005}]
+    Let $\mathcal{P}$ be a point group of a space group $\mathcal{G}$.
+    The map $\bm{\tau}: \mathcal{P} \to \mathbb{R}^{n}$ is called a \term{vector system} if the map satisfies \term{cocycle condition} in Eq.~\eqref{eq:cocycle_condition}.
+  \end{defn}
+\end{screen}
+In summary, a space group is fully constructed from its translation subgroup, point group, and vector system.
+
+Note that the choice of the origin of the affine space transforms the translation part $\bm{\tau}$.
+When we change the origin from $\bm{O}$ to $\bm{O} + \bm{Ap}$, a symmetry operation $(\bm{W}, \bm{\tau}(\bm{W}))$ are transformed to
+\begin{align*}
+  \begin{pmatrix}
+    \bm{I}_{n} & \bm{p} \\
+    \bm{0}^{\top} & 1 \\
+  \end{pmatrix}^{-1}
+  \begin{pmatrix}
+    \bm{W} & \bm{\tau}(\bm{W}) \\
+    \bm{0}^{\top} & 1 \\
+  \end{pmatrix}
+  \begin{pmatrix}
+    \bm{I}_{n} & \bm{p} \\
+    \bm{0}^{\top} & 1 \\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \bm{W} & \bm{\tau}(\bm{W}) + (\bm{W} - \bm{I}_{n})\bm{p} \\
+    \bm{0}^{\top} & 1 \\
   \end{pmatrix}
 \end{align*}
+from Eq.~\eqref{eq:operation_transformation}.
+Thus, for any $\bm{p} \in \mathbb{R}^{n}$, a vector system
+\begin{align}
+  \bm{\tau}_{\bm{p}}(\bm{W})
+    \coloneqq \bm{\tau}(\bm{W}) + (\bm{W} - \bm{I}_{n}) \bm{p}
+    \quad (\bm{W} \in \mathcal{P})
+\end{align}
+and $\bm{\tau}$ give the same space group.
 
-\todo{symmorphic and nonsymmorphic space groups}
+\begin{screen}
+  \begin{defn}[symmorphic and non-symmorphic]
+    Let $\bm{\tau}$ be a vector system of a space group $\mathcal{G}$.
+    If there exists an origin shift $\bm{p} \in \mathbb{R}^{n}$ such that $\bm{\tau}_{\bm{p}} \equiv \bm{0}$, $\mathcal{G}$ is called a \term{symmorphic} space group.
+    Otherwise, $\mathcal{G}$ is called a \term{non-symmorphic} space group.
+  \end{defn}
+\end{screen}
 
 \subsection{Working examples from plane groups}
+
+Let us derive plane groups $p2mm$, $p2mg$ and $p2gg$ from a translation group $\mathbb{Z}^{2}$ and a point group
+\begin{align*}
+  \mathcal{P}_{\mathrm{2mm}} = \left\{
+    \bm{W}_{0} = \begin{pmatrix}
+      1 & 0 \\
+      0 & 1 \\
+    \end{pmatrix},
+    \bm{W}_{1} = \begin{pmatrix}
+      -1 & 0 \\
+      0 & -1 \\
+    \end{pmatrix},
+    \bm{W}_{2} = \begin{pmatrix}
+      -1 & 0 \\
+      0 & 1 \\
+    \end{pmatrix},
+    \bm{W}_{3} = \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 \\
+    \end{pmatrix}
+  \right\}.
+\end{align*}
+This example is adopted from Section 4.2 of Ref.~\cite{Souvignier08}.
+
+Let $\bm{\tau}_{i} = \bm{\tau}(\bm{W}_{i})$ for $i = 1, \dots, 4$.
+It is sufficient to consider $\bm{\tau}_{2} = \begin{pmatrix} a_{2} \\ b_{2} \end{pmatrix}$ and $\bm{\tau}_{3} = \begin{pmatrix} a_{3} \\ b_{3} \end{pmatrix}$ because the remains are obtained from the cocycle condition,
+\begin{align*}
+  \bm{\tau}_{1}
+    &= \bm{\tau}(\bm{W}_{2}\bm{W}_{3})
+    = \bm{\tau}_{2} + \bm{W}_{2} \bm{\tau}_{3}
+    = \begin{pmatrix} a_{2} - a_{3} \\ b_{2} + b_{3} \end{pmatrix}.
+\end{align*}
+The relation $\bm{W}_{2}^{2} = \bm{W}_{0}$ gives
+\begin{align*}
+  \bm{\tau}_{0}
+    &= \bm{\tau}(\bm{W}_{2}^{2})
+    = \bm{\tau}_{2} + \bm{W}_{2} \bm{\tau}_{2}
+    = \begin{pmatrix} 0 \\ 2 b_{2} \end{pmatrix} \\
+  \therefore 2b_{2} &\equiv 0 \, (\mathrm{mod}\, \mathbb{Z}).
+\end{align*}
+The relation $\bm{W}_{3}^{2} = \bm{W}_{0}$ gives
+\begin{align*}
+  \bm{\tau}_{0}
+    &= \bm{\tau}_{3} + \bm{W}_{3} \bm{\tau}_{3}
+    = \begin{pmatrix} 2 a_{3} \\ 0 \end{pmatrix} \\
+  \therefore 2 a_{3} &\equiv 0 \, (\mathrm{mod}\, \mathbb{Z}).
+\end{align*}
+The relation $(\bm{W}_{2}\bm{W}_{3})^{2} = \bm{W}_{1}^{2} = \bm{W}_{0}$ gives no restriction,
+\begin{align*}
+  \bm{\tau}_{0}
+    &= \bm{\tau}_{1} + \bm{W}_{1} \bm{\tau}_{1}
+    = \begin{pmatrix} 0 \\ 0 \end{pmatrix}.
+\end{align*}
+
+The trivial vector system $\bm{\tau}^{0}_{\bm{p}, i} = (\bm{W}_{i} - \bm{I}) \bm{p} \quad (i=1,\dots,4)$ for origin shift $\bm{p} = \begin{pmatrix} p \\ q \end{pmatrix}$ is computed as
+\begin{align*}
+  \bm{\tau}^{0}_{\bm{p}, 0} = \begin{pmatrix} 0 \\ 0 \end{pmatrix},
+  \bm{\tau}^{0}_{\bm{p}, 1} = \begin{pmatrix} -2 p \\ -2 q \end{pmatrix},
+  \bm{\tau}^{0}_{\bm{p}, 2} = \begin{pmatrix} -2 p \\ 0 \end{pmatrix},
+  \bm{\tau}^{0}_{\bm{p}, 3} = \begin{pmatrix} 0 \\ -2 q \end{pmatrix}.
+\end{align*}.
+Thus, we can choose $p=-\frac{a_{2}}{2}, q=-\frac{b_{3}}{2}$ so that $a_{2} = b_{3} = 0$.
+We derived the following vector systems
+\begin{itemize}
+  \item $\bm{\tau}_{2} = \bm{\tau}_{3} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$: $p2mm$
+  \item $\bm{\tau}_{2} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \bm{\tau}_{3} = \begin{pmatrix} 0 \\ \frac{1}{2} \end{pmatrix}$: $p2mg$ (reflection along $a$ axis and glide along $b$ axis)
+  \item $\bm{\tau}_{2} = \begin{pmatrix} 0 \\ \frac{1}{2} \end{pmatrix}, \bm{\tau}_{3} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$: $p2mg$ (reflection along $b$ axis and glide along $a$ axis)
+  \item $\bm{\tau}_{2} = \begin{pmatrix} 0 \\ \frac{1}{2} \end{pmatrix}, \bm{\tau}_{3} = \begin{pmatrix} 0 \\ \frac{1}{2} \end{pmatrix}$: $p2gg$.
+\end{itemize}
