@@ -1,5 +1,7 @@
 \section{\label{sec:classification}Classification of space groups}
 
+\begin{figure}[htb]
+\centering
 \begin{tikzpicture}
   \tikzset{nodestyle/.style={draw}};
 
@@ -27,18 +29,21 @@
   \draw (arithmetic-class) -- (affine);
   \draw (affine) -- (spacegroup);
 \end{tikzpicture}
+\caption{Classification of space groups}
+\label{fig:space_group_classification}
+\end{figure}
 
-We classify space groups in three dimensions.
+We classify space groups in three dimensions (see Fig.~\ref{fig:space_group_classification} for the hierarchy of the classifications).
 
 \subsection{\label{sec:space-group-type}Affine space-group type and space-group type}
 
-It is natural to identify two space groups that are transformed into the another by changing coordinate systems.
+It is natural to identify two space groups that are transformed into another by changing coordinate systems.
 
 \begin{screen}
   \begin{defn}[affine space-group type]
-    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping,
+    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping $(\bm{P}, \bm{p}) \in \mathcal{A}_{3}$ such that
     \begin{align}
-      \exists (\bm{P}, \bm{p}) \in \mathcal{A}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'.
+      (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'.
     \end{align}
     These space groups are also called \term{affinely equivalent}.
   \end{defn}
@@ -47,9 +52,9 @@ It is natural to identify two space groups that are transformed into the another
 It is nontrivial fact that affine equivalence completely identifies the isomorphism of space groups.
 
 \begin{screen}
-  \begin{theorem}[Bieberbach]
+  \begin{them}[Bieberbach]
     Two space groups are isomorphic if and only if they belong to the same affine type.
-  \end{theorem}
+  \end{them}
 \end{screen}
 
 In crystallography, a tighter classification of space groups is often used.
@@ -60,11 +65,7 @@ That is, orientation-preserving affine mapping is only considered in transformat
 
 \begin{screen}
   \begin{defn}[space-group type]
-    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{(crystallographic) space-group type} if they are conjugate by some orientation-preserving affine mapping,
-    \begin{align}
-      \exists (\bm{P}, \bm{p}) \in \mathcal{A}^{+}_{3} \quad s.t. \quad (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}',
-    \end{align}
-    where orientation-preserving affine mapping is an affine mapping whose linear part is positive,
+    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{(crystallographic) space-group type} if they are conjugate by some orientation-preserving affine mapping $(\bm{P}, \bm{p}) \in \mathcal{A}^{+}_{3}$ such that $(\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'$, where orientation-preserving affine mapping is an affine mapping whose linear part is positive,
     \begin{align}
       \mathcal{A}^{+}_{n} \coloneqq \set{ \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix} }{ \bm{W} \in \mathrm{GL}(n, \mathbb{R}), \det \bm{W} > 0, \bm{w} \in \mathbb{R}^{n} }.
     \end{align}
@@ -93,15 +94,15 @@ For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\re
   \end{tabular}
 \end{table}
 
-\subsection{\label{sec:geometric-class}Geometric crystal class}
+\subsection{\label{sec:geometric-class}Classification based on point group}
 
 We consider classification based on a point group of a space group.
 
 \begin{screen}
   \begin{defn}[geometric crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix,
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ such that
     \begin{align}
-      \exists \bm{P} \in \mathrm{GL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
+       \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
     \end{align}
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{geometric crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same geometric crystal class.
   \end{defn}
@@ -130,9 +131,57 @@ Two space groups belong to the same \term{Laue class} if point groups obtained b
   \end{tabular}
 \end{table}
 
-\todo{$3m1$ and $31m$}
+\paragraph{Example: point groups of $P\overline{4}2m$ and $P\overline{4}m2$}
 
-\subsection{\label{sec:bravais-class}Bravais type of lattice and Bravais class}
+The point group of space-group type $P\overline{4}2m$ is generated from fourfold rotoinversion along the $c$ axis and twofold rotation along the $a$ axis,
+\begin{align*}
+  \overline{4}^{+}_{001}:
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      -1 & 0 & 0 \\
+      0 & 0 & -1 \\
+    \end{pmatrix},
+  2_{100}:
+    \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & -1 & 0 \\
+      0 & 0 & -1 \\
+    \end{pmatrix}.
+\end{align*}
+On the other hand, the point group of space-group type $P\overline{4}m2$ is generated from fourfold rotoinversion along the $c$ axis and twofold rotation along the $[110]$ axis,
+\begin{align*}
+  \overline{4}^{+}_{001}:
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      -1 & 0 & 0 \\
+      0 & 0 & -1 \\
+    \end{pmatrix},
+  2_{110}:
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      -1 & 0 & 0 \\
+      0 & 0 & -1 \\
+    \end{pmatrix}.
+\end{align*}
+These two point groups $\overline{4}2m$ and $\overline{4}m2$ are conjugated by $\frac{\pi}{4}$ rotation along the $c$ axis.
+Thus, they belong to the same geometric crystal class $\overline{4}2m$.
+However, $P\overline{4}2m$ and $P\overline{4}m2$ belong to different space-group types because the $\frac{\pi}{4}$ rotation cannot act on the lattice.
+
+\paragraph{Example: $pm$ and $cm$}
+
+The point group of both plane-group types $pm$ and $cm$ is generated from
+\begin{align}
+  m:
+    \begin{pmatrix}
+      -1 & 0 \\
+      0 & 1 \\
+    \end{pmatrix}.
+\end{align}
+Thus, $pm$ and $cm$ belong to the same geometric crystal class $m$.
+
+\subsection{\label{sec:bravais-class}Classification based on lattice}
+
+\subsubsection{Bravais group and Bravais type of lattice}
 
 We consider classification based on a translation lattice of a space group.
 
@@ -147,25 +196,85 @@ We consider classification based on a translation lattice of a space group.
 
 \begin{screen}
   \begin{defn}[Bravais group]
-    A set of isometry mapping that pertains $L$ is called \term{Bravais group of $L$}.
-    Letting $\bm{G}$ be a metric tensor of $L$, Bravais group of $L$ is
+    Let $\bm{G}$ be a metric tensor of a translation lattice $L$ with primitive basis vectors.
+    A set of isometry mapping that preserves $L$ is called the \term{Bravais group} of $L$,
     \begin{align}
       \mathcal{B}(L) \coloneqq \set{ \bm{W} \in \mathrm{GL}(3, \mathbb{Z}) }{ \bm{W}^{\top}\bm{GW} = \bm{G} }.
     \end{align}
   \end{defn}
 \end{screen}
 
-We mention that a Bravais group may change as a set by transforming primitive basis.
+Note that the Bravais group may change as a set by transforming primitive basis.
 
 \begin{screen}
   \begin{defn}[Bravais type of lattice]
-    Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix,
+    Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
     \begin{align}
-      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \quad s.t. \quad \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
+       \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
     \end{align}
   \end{defn}
 \end{screen}
-Remarkably, this definition of Bravais types of lattices is independent of choices for primitive basis.
+This definition of Bravais types of lattices is independent of choices for primitive basis.
+
+\paragraph{Example: Bravais types of lattices of translation lattices of $pm$ and $cm$}
+
+We consider a translation lattice of $pm$.
+We assume cell parameters $a$ and $b$ have no relationship to each other.
+The metric tensor for one of the choices of primitive basis vectors is
+\begin{align*}
+  \bm{G}_{pm} = \begin{pmatrix} a^{2} & 0 \\ 0 & b^{2} \end{pmatrix}.
+\end{align*}
+The Bravais group of $L_{pm}$ is
+\begin{align}
+  \label{eq:bravais_group_pm_general}
+  \mathcal{B}(L_{pm}) = \left\{
+    \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ \end{pmatrix},
+    \begin{pmatrix} -1 & 0 \\ 0 & -1 \\ \end{pmatrix},
+    \begin{pmatrix} 1 & 0 \\ 0 & -1 \\ \end{pmatrix},
+    \begin{pmatrix} -1 & 0 \\ 0 & 1 \\ \end{pmatrix}
+  \right\}.
+\end{align}
+
+Next, we consider a translation lattice of $cm$, $L_{cm}$.
+We transform a conventional cell with cell parameter $\gamma = 90^{\circ}$ to a primitive cell by $(\bm{a}_{p}, \bm{b}_{p}) = (\bm{a}, \bm{b}) \bm{P}$ with
+\begin{align*}
+  \bm{P} = \frac{1}{2} \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}.
+\end{align*}
+The metric tensor with the primitive basis vectors is
+\begin{align*}
+  \bm{G}_{cm} = \begin{pmatrix}
+    \frac{a^{2} + b^{2}}{2} & \frac{a^{2} - b^{2}}{2} \\
+    \frac{a^{2} - b^{2}}{2} & \frac{a^{2} + b^{2}}{2} \\
+  \end{pmatrix}.
+\end{align*}
+The Bravais group of $L_{cm}$ with the primitive basis vectors is
+\begin{align}
+  \label{eq:bravais_group_cm_general}
+  \mathcal{B}(L_{cm}) = \left\{
+    \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ \end{pmatrix},
+    \begin{pmatrix} -1 & 0 \\ 0 & -1 \\ \end{pmatrix},
+    \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ \end{pmatrix},
+    \begin{pmatrix} 0 & -1 \\ -1 & 0 \\ \end{pmatrix}
+  \right\}.
+\end{align}
+The two Bravais groups $\mathcal{B}(L_{pm})$ and $\mathcal{B}(L_{cm})$ are conjugate by $\frac{\pi}{4}$ rotation, which does not belong to $\mathrm{SL}(3, \mathbb{Z})$.
+Thus, $L_{pm}$ and $L_{cm}$ belong to the different Bravais types of lattices ($op$ and $oc$).
+The Bravais groups for two-dimensional lattices are given in Table~\ref{tab:two-dimensional-Bravais-groups}.
+
+\begin{table}[htb]
+  \centering
+  \caption{The Bravais groups of two-dimensional lattices (Table~1.3.3.1 of Ref.~\cite{ITA2016})}
+  \label{tab:two-dimensional-Bravais-groups}
+  \begin{tabular}{ccc}
+    Lattice & Metric tensor & Bravais group \\ \hline
+    oblique & $\begin{pmatrix} g_{11} & g_{12} \\ g_{12} & g_{22} \end{pmatrix}$ & $2$ \\
+    rectangular & $\begin{pmatrix} g_{11} & 0 \\ 0 & g_{22} \end{pmatrix}$ & $2mm$ \\
+    square & $\begin{pmatrix} g_{11} & 0 \\ 0 & g_{11} \end{pmatrix}$ & $4mm$ \\
+    hexagonal & $\begin{pmatrix} g_{11} & -\frac{1}{2} g_{11} \\ -\frac{1}{2} g_{11} & g_{11} \end{pmatrix}$ & $6mm$ \\
+  \end{tabular}
+\end{table}
+
+\subsubsection{Bravais type of lattice and Bravais class}
 
 \begin{screen}
   \begin{defn}[Bravais manifold]
@@ -201,6 +310,31 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 \end{screen}
 
 \todo{limiting case from $mP$ to $oS$}
+
+\paragraph{Example: Bravais manifolds and Bravais classes of $pm$ and $cm$}
+
+The Bravais manifold of the Bravais group in Eq.~\eqref{eq:bravais_group_pm_general} is
+\begin{align*}
+  \bm{M}(\mathcal{B}(L_{pm})) = \set{
+    \begin{pmatrix} g_{11} & 0 \\ 0 & g_{22} \end{pmatrix}
+  }{
+    g_{11}, g_{22} \in \mathbb{R}
+  }.
+\end{align*}
+If the metric tensor satisfies $g_{11} = g_{22} \, (a = b)$ , the corresponding Bravais group is $4mm$.
+The Bravais manifold of $4mm$ has only one free parameter.
+Thus, such a lattice has a specialized metric.
+
+The Bravais manifold of the Bravais group in Eq.~\eqref{eq:bravais_group_cm_general} is
+\begin{align*}
+  \bm{M}(\mathcal{B}(L_{cm})) = \set{
+    \begin{pmatrix} g_{11} & g_{12} \\ g_{12} & g_{11} \end{pmatrix}
+  }{
+    g_{11}, g_{12} \in \mathbb{R}
+  }.
+\end{align*}
+If $g_{12} = 0 \, (a = b)$, the corresponding Bravais group is $4mm$.
+If $g_{12} = -\frac{1}{2} g_{11} \, (b = \sqrt{3} a)$, the corresponding Bravais group is $6mm$.
 
 \subsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
 
