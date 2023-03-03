@@ -80,6 +80,7 @@ For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\re
   \caption{Enantiomorphic pairs in space groups}
   \label{table:enantiomorphic-pairs-3d}
   \begin{tabular}[h]{cc}
+    \hline\hline
     $P 4_{1}$ (76)         & $P 4_{3}$ (78) \\
     $P 4_{1} 2 2$ (91)     & $P 4_{3} 2 2$ (95) \\
     $P 4_{1} 2_{1} 2$ (92) & $P 4_{3} 2_{1} 2$ (96) \\
@@ -90,7 +91,8 @@ For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\re
     $P 6_{2}$ (170)        & $P 6_{4}$ (172) \\
     $P 6_{1} 2 2$ (178)    & $P 6_{5} 2 2$ (179) \\
     $P 6_{2} 2 2$ (180)    & $P 6_{4} 2 2$ (181) \\
-    $P 4_{3} 3 2$ (212)    & $P 4_{1} 3 2$ (213)
+    $P 4_{3} 3 2$ (212)    & $P 4_{1} 3 2$ (213) \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
@@ -108,14 +110,16 @@ We consider classification based on a point group of a space group.
   \end{defn}
 \end{screen}
 
+There are 32 geometric crystal classes for space groups shown in Table~\ref{tab:crystal_system}.
+
 Two space groups belong to the same \term{Laue class} if point groups obtained by their point group with inversions belong to the same geometric crystal class (Table~\ref{tab:laue_class}).
 
 \begin{table}[htb]
   \centering
   \caption{Laue classes in space groups}
   \label{tab:laue_class}
-  \begin{tabular}[h]{l|l}
-    \hline
+  \begin{tabular}[h]{cc}
+    \hline\hline
     Laue class       & Geometric crystal class \\ \hline
     $\overline{1}$   & $1$, $\overline{1}$ \\
     $2/m$            & $2$, $m$, $2/m$ \\
@@ -127,7 +131,8 @@ Two space groups belong to the same \term{Laue class} if point groups obtained b
     $6/m$            & $6$, $\overline{6}$, $6/m$ \\
     $6/mmm$          & $622$, $\overline{6}2m$, $6mm$, $6/mmm$ \\
     $m\overline{3}$  & $23$, $m\overline{3}$ \\
-    $m\overline{3}m$ & $432$, $\overline{4}32$, $m\overline{3}m$ \\ \hline
+    $m\overline{3}m$ & $432$, $\overline{4}32$, $m\overline{3}m$ \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
@@ -189,7 +194,7 @@ We consider classification based on a translation lattice of a space group.
   \begin{defn}[translation lattice]
     A \term{translation lattice} $L$ of a space group $\mathcal{G}$ is a set of translation parts of translation subgroup of $\mathcal{G}$,
     \begin{align}
-      L = \set{ \bm{t} }{ (\bm{I}_{3}, \bm{t}) \in \mathcal{G} }.
+      L = \set{ \bm{At} }{ (\bm{I}_{3}, \bm{t}) \in \mathcal{G} }.
     \end{align}
   \end{defn}
 \end{screen}
@@ -266,11 +271,13 @@ The Bravais groups for two-dimensional lattices are given in Table~\ref{tab:two-
   \caption{The Bravais groups of two-dimensional lattices (Table~1.3.3.1 of Ref.~\cite{ITA2016})}
   \label{tab:two-dimensional-Bravais-groups}
   \begin{tabular}{ccc}
+    \hline\hline
     Lattice & Metric tensor & Bravais group \\ \hline
     oblique & $\begin{pmatrix} g_{11} & g_{12} \\ g_{12} & g_{22} \end{pmatrix}$ & $2$ \\
     rectangular & $\begin{pmatrix} g_{11} & 0 \\ 0 & g_{22} \end{pmatrix}$ & $2mm$ \\
     square & $\begin{pmatrix} g_{11} & 0 \\ 0 & g_{11} \end{pmatrix}$ & $4mm$ \\
     hexagonal & $\begin{pmatrix} g_{11} & -\frac{1}{2} g_{11} \\ -\frac{1}{2} g_{11} & g_{11} \end{pmatrix}$ & $6mm$ \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
@@ -289,19 +296,17 @@ The Bravais groups for two-dimensional lattices are given in Table~\ref{tab:two-
 Let $L$ and $\mathcal{P}$ be a translation lattice and a point group of a space group $\mathcal{G}$, respectively.
 When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\mathcal{P})$, the translation lattice $L$ is called to have \term{spaciealized metric}.
 
-\todo{Add example of specialized metric and Euclidean normalizer}
-
 \begin{screen}
   \begin{defn}[Bravais class]
-    Let $L$ be a lattice with a metric tensor $\bm{G}$.
-    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ and a translation lattice $L$ belongs to a \term{Bravais class corresponding to the Bravais type of $L$} if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate in $\mathrm{SL}(3, \mathbb{Z})$,
+    Let $L$ be some lattice with a metric tensor $\bm{G}$.
+    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ belongs to a \term{Bravais class} corresponding to the Bravais type of $L$ if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
     \begin{align}
-      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L)).
+      \bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L)).
     \end{align}
   \end{defn}
 \end{screen}
 
-\todo{Note that the definition of Bravais classes is independent of whether a translation lattice is a specialized metric or not.}
+Note that the definition of Bravais classes is independent of whether a translation lattice is a specialized metric or not.
 
 \begin{screen}
   \begin{defn}[holohedry]
@@ -309,9 +314,9 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
   \end{defn}
 \end{screen}
 
-\todo{limiting case from $mP$ to $oS$}
+The seven holohedries for the three-dimensional lattices are shown in Table.~\ref{tab:lattice_system}.
 
-\paragraph{Example: Bravais manifolds and Bravais classes of $pm$ and $cm$}
+\paragraph{Example: Bravais manifolds and Bravais classes of $pm$}
 
 The Bravais manifold of the Bravais group in Eq.~\eqref{eq:bravais_group_pm_general} is
 \begin{align*}
@@ -325,6 +330,18 @@ If the metric tensor satisfies $g_{11} = g_{22} \, (a = b)$ , the corresponding 
 The Bravais manifold of $4mm$ has only one free parameter.
 Thus, such a lattice has a specialized metric.
 
+The Bravais manifold of the point group of $pm$ is
+\begin{align*}
+  \bm{M}(\mathcal{P}_{pm}) = \set{
+    \begin{pmatrix} g_{11} & 0 \\ 0 & g_{22} \end{pmatrix}
+  }{
+    g_{11}, g_{22} \in \mathbb{R}
+  }.
+\end{align*}
+Therefore, $pm$ belongs to the Bravais group $op$ whether its translation lattice has a specialized metric or not.
+
+\paragraph{Example: Bravais manifolds and Bravais classes of $cm$}
+
 The Bravais manifold of the Bravais group in Eq.~\eqref{eq:bravais_group_cm_general} is
 \begin{align*}
   \bm{M}(\mathcal{B}(L_{cm})) = \set{
@@ -336,17 +353,33 @@ The Bravais manifold of the Bravais group in Eq.~\eqref{eq:bravais_group_cm_gene
 If $g_{12} = 0 \, (a = b)$, the corresponding Bravais group is $4mm$.
 If $g_{12} = -\frac{1}{2} g_{11} \, (b = \sqrt{3} a)$, the corresponding Bravais group is $6mm$.
 
-\subsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
+The Bravais manifold of the point group of $cm$ is
+\begin{align*}
+  \bm{M}(\mathcal{P}_{pm}) = \set{
+    \begin{pmatrix} g_{11} & 0 \\ 0 & g_{22} \end{pmatrix}
+  }{
+    g_{11}, g_{22} \in \mathbb{R}
+  }.
+\end{align*}
+Therefore, $cm$ belongs to the Bravais group $oc$ whether its translation lattice has a specialized metric or not.
+
+\subsection{Other classifications}
+
+\subsubsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
 
 \begin{screen}
   \begin{defn}[arithmetic crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix,
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
     \begin{align}
-      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{R}) \quad s.t. \quad \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
+      \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
     \end{align}
-    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
+    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, both written with primitive basis vectors, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
   \end{defn}
 \end{screen}
+
+The arithmetic crystal class forgets vector systems of space groups in Sec.~\ref{sec:vector_system}.
+Therefore, the arithmetic crystal classes have a one-to-one correspondence with symmorphic space-group types.
+There are \href{https://dictionary.iucr.org/Arithmetic_crystal_class}{73 arithmetic crystal classes} for space groups.
 
 \begin{screen}
   \begin{defn}[Bravais arithmetic crystal class]
@@ -357,56 +390,54 @@ If $g_{12} = -\frac{1}{2} g_{11} \, (b = \sqrt{3} a)$, the corresponding Bravais
   \end{defn}
 \end{screen}
 
-Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
+% Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
 The definition of Bravais arithmetic crystal classes is compatible with that of Bravais types of lattices (see Table~\ref{table:arithmetic-class-3d}).
 
 \begin{table}[htb]
   \centering
   \caption{The correspondence of Bravais arithmetic crystal classes and Bravais types of lattices in three dimensions.}
   \label{table:arithmetic-class-3d}
-  \begin{tabular}{l|l}
-    \hline
+  \begin{tabular}{cc}
+    \hline\hline
     Bravais type of lattice & Bravais arithmetic crystal class \\ \hline
-    $aP$                    & $\overline{1}P$ (2)              \\ \hline
-    $mP$                    & $2/mP$ (10)                      \\
-    $mC$                    & $2/mC$ (12)                      \\ \hline
-    $oP$                    & $mmmP$ (47)                      \\
-    $oS$                    & $mmmC$ (65)                      \\
-    $oF$                    & $mmmF$ (69)                      \\
-    $oI$                    & $mmmI$ (71)                   \\ \hline
-    $tP$                    & $4/mmmP$ (123)                   \\
-    $tI$                    & $4/mmmI$ (139)                   \\ \hline
-    $hR$                    & $\overline{3}mR$ (166)           \\
-    $hP$                    & $6/mmmP$ (191)                   \\ \hline
-    $cP$                    & $m\overline{3}mP$ (221)          \\
-    $cF$                    & $m\overline{3}mF$ (225)          \\
-    $cI$                    & $m\overline{3}mI$ (229)          \\ \hline
+    $aP$                    & $\overline{1}P$                  \\
+    $mP$                    & $2/mP$                           \\
+    $mC$                    & $2/mC$                           \\
+    $oP$                    & $mmmP$                           \\
+    $oS$                    & $mmmC$                           \\
+    $oF$                    & $mmmF$                           \\
+    $oI$                    & $mmmI$                           \\
+    $tP$                    & $4/mmmP$                         \\
+    $tI$                    & $4/mmmI$                         \\
+    $hR$                    & $\overline{3}mR$                 \\
+    $hP$                    & $6/mmmP$                         \\
+    $cP$                    & $m\overline{3}mP$                \\
+    $cF$                    & $m\overline{3}mF$                \\
+    $cI$                    & $m\overline{3}mI$                \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
-\todo{Example: $cm$ and $pm$}
-
-\subsection{\label{sec:lattice-system}Lattice system}
+\subsubsection{\label{sec:lattice-system}Lattice system}
 
 \begin{screen}
   \begin{defn}[lattice system]
-    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class,
+    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class, that is, some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ exists such that
     \begin{align}
-      \exists \bm{P} \in \mathrm{SL}(3, \mathbb{Z}) \,s.t.\, \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
+      \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
     \end{align}
   \end{defn}
 \end{screen}
 
-\todo{definition of lattice system on space groups}
-
-Table~\ref{tab:lattice_system}
+Two Bravais classes belong to the same \term{lattice system} if the corresponding Bravais arithmetic crystal classes belong to the same holohedry.
+There are seven lattice systems for three-dimensional space groups as shown in Table~\ref{tab:lattice_system}.
 
 \begin{table}[htb]
   \centering
-  \caption{Lattice systems in space groups}
+  \caption{Lattice systems in the three-dimensional space}
   \label{tab:lattice_system}
-  \begin{tabular}[h]{lll}
-    \hline
+  \begin{tabular}[h]{ccc}
+    \hline\hline
     Lattice system & Holohedry & Bravias types of lattices \\ \hline
     Triclinic    & $\overline{1}$   & $aP$                   \\
     Monoclinic   & $2/m$            & $mP$, $mS$             \\
@@ -414,24 +445,27 @@ Table~\ref{tab:lattice_system}
     Tetragonal   & $4/mmm$          & $tP$, $tI$             \\
     Rhombohedral & $\overline{3}m$  & $hR$                   \\
     Hexagonal    & $6/mmm$          & $hP$                   \\
-    Cubic        & $m\overline{3}m$ & $cP$, $cF$, $cI$       \\ \hline
+    Cubic        & $m\overline{3}m$ & $cP$, $cF$, $cI$       \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
-\subsection{\label{sec:crystal-system}Crystal system}
+\subsubsection{\label{sec:crystal-system}Crystal system}
 
-\todo{}
+\begin{screen}
+  \begin{defn}[crytal system]
+    Two space groups with point groups $\mathcal{P}$ and $\mathcal{P}'$ belong to the same \term{crystal system} if and only if the sets of Bravais type of lattices on which these point groups act coincide.
+  \end{defn}
+\end{screen}
 
-Two point groups belong to the same crystal system if and only if the sets of Bravais type of lattices on which these point groups act coincide.
-
-Table~\ref{tab:crystal_system}
+There are seven crystal systems for three-dimensional space groups as shown in Table~\ref{tab:crystal_system}.
 
 \begin{table}[htb]
   \centering
   \caption{Crystal systems in space groups}
   \label{tab:crystal_system}
-  \begin{tabular}{ll}
-    \hline
+  \begin{tabular}{cc}
+    \hline\hline
     Crystal system & Geometric crystal classes                                \\ \hline
     Triclinic      & $1, \overline{1}$                                        \\
     Monoclinic     & $2/m, m, 2$                                              \\
@@ -439,8 +473,33 @@ Table~\ref{tab:crystal_system}
     Tetragonal     & $4/mmm, \overline{4}2m, 4mm, 422, 4/m, \overline{4}, 4$  \\
     Hexagonal      & $6/mmm, \overline{6}2m, 6mm, 622, 6/m, \overline{6}, 6$  \\
     Trigonal       & $\overline{3}m, 3m, 32, \overline{3}, 3$                 \\
-    Cubic          & $m\overline{3}m, \overline{4}3m, 432, m\overline{3}, 23$ \\ \hline
+    Cubic          & $m\overline{3}m, \overline{4}3m, 432, m\overline{3}, 23$ \\
+    \hline\hline
   \end{tabular}
 \end{table}
 
-\subsection{\label{sec:crystal-family}Crystal family}
+\subsubsection{\label{sec:crystal-family}Crystal family}
+
+\begin{screen}
+  \begin{defn}[crystal family]
+    The \term{crystal family} of space group $\mathcal{G}$ is the union of all geometric crystal classes that contain some space group $\mathcal{G}'$ that has the same Bravais type of lattices as $\mathcal{G}$.
+  \end{defn}
+\end{screen}
+
+The hexagonal and trigonal crystal systems belong to the same crystal family, called the hexagonal crystal family, because a translation lattice of a trigonal space group with a specialized metric can have the Bravais group, $6/mmm$.
+There are six crystal families for the three-dimensional space groups: triclinic, monoclinic, orthorhombic, tetragonal, hexagonal, and cubic.
+Also, the hexagonal crystal family is shown in Table~\ref{tab:hexagonal_crystal_family}.
+
+\begin{table}[htb]
+  \centering
+  \caption{Arithmetic crystal classes belonging to the hexagonal crystal family.}
+  \label{tab:hexagonal_crystal_family}
+  \begin{tabular}{c|c|c}
+    \hline
+      Crystal system \textbackslash Lattice system & Hexagonal & Rhombohedral \\ \hline
+      Hexagonal & $6/mmmP$, $\overline{6}m2P$, $6mmP$,  & \\
+                & $622P$, $6/mP$, $\overline{6}P$, $6P$ & \\ \hline
+      Trigonal  & $\overline{3}mP$, $3mP$, $32P$, $\overline{3}P$, $3P$ & $\overline{3}mR$, $3mR$, $32R$, $\overline{3}R$, $3R$ \\
+    \hline
+  \end{tabular}
+\end{table}
