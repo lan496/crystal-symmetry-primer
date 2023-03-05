@@ -51,36 +51,42 @@ Choose basis vectors parallel to the fourfold axes.
 
 \subsection{Hermann--Mauguin symbol}
 
-\todo{Section 1.4.1 of ITA}
+The Hermann--Mauguin (HM) symbols represent space groups concisely.
+The first constituent of the HM symbol characterizes the conventional cell of the translation lattice, one of $P, A, B, C, F, I$, and $R$.
+The remained constituents describe generators of the space group.
 
-Convention for Hermann-Mauguin symbols is shown in Table~\ref{tab:hermann-mauguin}.
+One way to read the HM symbols is as follows (along with the example $Cmc2_{1}$):
+\begin{enumerate}
+  \item Read the conventional cell from the first constituent (base-centered basis $C$)
+  \item Determine the geometric crystal class by ignoring translation parts ($mm2$)
+  \item Determine the crystal class ($mm2 \, \rightarrow \, \mbox{orthorhombic}$)
+  \item Read symmetry directions from Table~\ref{tab:hermann-mauguin}
+\end{enumerate}
 
 \begin{table}[htb]
-  \caption{lattice symmetry directions in three-dimensional space (ITA Table~2.1.3.1)}
+  \caption{Symmetry directions for the short Hermann--Mauguin symbols in space groups}
   \label{tab:hermann-mauguin}
   \centering
-  \tiny
-  \begin{tabular}{llll}
+  \begin{tabular}{cccc}
     \hline\hline
-    Lattice system & Primary & Secondary & Tertiary  \\ \hline
-    triclinic                       & None & & \\
-    monoclinic (unique axis b)      & [010] & & \\
-    orthorhombic                    & [100] & [010] & [001] \\
-    tetragonal                      & [001] & $\langle 100 \rangle = [100][010]$ & $\langle 1\overline{1}0 \rangle = [110][1\overline{1}0]$ \\
-    rhombohedral(hexagonal axes)    & [001] & $\langle 100 \rangle = [100][010][\overline{11}0]$ \\
-    rhombohedral(rhombohedral axes) & [111] & $\langle 1\overline{1}0 \rangle = [1\overline{1}0][01\overline{1}][\overline{1}01]$ \\
-    hexagonal & [001] & $\langle 100 \rangle = [100][010][\overline{11}0]$ & $\langle 1\overline{1}0 \rangle = [1\overline{1}0][120][\overline{21}0]$ \\
-    cubic
-      & $\langle 001 \rangle = [100][010][001] $
-      & $\langle 111 \rangle = [111][1\overline{11}][\overline{1}11][\overline{11}1]$
-      & $\langle 110 \rangle = [1\overline{1}0] [110] [01\overline{1}] [011] [\overline{1}01] [101]$ \\
+    Crystal system & Primary & Secondary & Tertiary  \\ \hline
+    Triclinic                         & None  & & \\
+    Monoclinic (unique axis $\bm{b}$) & [010] & & \\
+    Orthorhombic                      & [100] & [010] & [001] \\
+    Tetragonal                        & [001] & $\langle 100 \rangle$ & $\langle 1\overline{1}0 \rangle $ \\
+    Trigonal ($P$ lattice) & [001] & $\langle 100 \rangle$ & None \\
+                           & [001] & None & $\langle 1\overline{1}0 \rangle $ \\
+    Trigonal ($R$ lattice, hexagonal axes) &
+      $[001]_{\mathrm{hex}}$ & $\langle 100 \rangle_{\mathrm{hex}}$ & \\
+    Trigonal ($R$ lattice, rhombohedral axes) &
+      $[111]_{\mathrm{rhomb}}$ & $\langle 1\overline{1}0 \rangle_{\mathrm{rhomb}}$ & \\
+    Hexagonal                        & [001] & $\langle 100 \rangle$ & $\langle 1\overline{1}0 \rangle$ \\
+    Cubic                            & $\langle 001 \rangle$ & $\langle 111 \rangle$ & $\langle 1\overline{1}0 \rangle$ \\
     \hline\hline
   \end{tabular}
 \end{table}
 
-\todo{How to read short HM symbols}
-
-The number of generators of space groups can be chosen as at most three.
+% The number of generators of space groups can be chosen as at most three.
 
 \subsection{Conventional descriptions of space group types in ITA}
 
