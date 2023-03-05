@@ -1,10 +1,57 @@
-\section{\label{sec:convention}Conventions for space groups}
+\section{\label{sec:convention}Conventions for representing space groups}
 
 \subsection{Conventional cell}
 
-\subsection{Helmann--Mauguin symbol}
+% Primitive basis and primitive cell
+It is natural to choose a basis for a translation lattice of a space group such that all symmetry operations are represented by integer matrices.
+Such a basis is called a \term{primitive basis} of the lattice, and a unit cell spanned by the primitive basis is called a \term{primitive cell}.
 
-\todo{Section 1.4.2 of ITA}
+% Centered basis and conventional cell
+Although the primitive basis is useful for mathematical and algorithmic treatments, we often use a non-primitive basis, called a \term{centered basis}, to represent the lattice for humans.
+There are conventions on which centered basis to choose for each lattice system, which is called a \term{conventional basis} \cite{burzlaff2016crystal}.
+A unit cell spanned by the conventional basis is called a \term{conventional cell}.
+The conventional bases are chosen as right-handed with the following rules:
+
+\paragraph{Triclinic lattice system ($aP$)}
+Choose the Niggli reduced basis \cite{Krivy:a12875}.
+
+\paragraph{Monoclinic lattice system ($mP, mS$)}
+The only symmetry direction is labeled $\bm{b}$.
+The other basis vectors $\bm{a}$ and $\bm{c}$ are chosen to be the shortest two vectors perpendicular to $\bm{b}$ with a non-acute angle.
+The other settings to choose $\bm{a}$ or $\bm{c}$ as the unique axis are also used.
+
+\paragraph{Orthorhombic lattice system ($oP, oS, oF, oI$)}
+Choose basis vectors along the three twofold axes.
+
+\paragraph{Tetragonal lattice system ($tP, tI$)}
+The vector $\bm{c}$ is along the fourfold axis.
+The $\bm{a}$ and $\bm{c}$ are chosen along the twofold axes perpendicular to each other.
+
+\paragraph{Rhombohedral lattice system ($hR$)}
+There are two descriptions in ITA~\cite{ITA2016}, \term{hexagonal axes} and \term{rhombohedral axes}.
+For the hexagonal axes, the vector $\bm{c}$ is parallel to the threefold axis;
+The $\bm{a}$ and $\bm{b}$ are chosen along twofold axes perpendicular to $\bm{c}$ with angle of $120^{\circ}$ so that lattice points occur at $2/3, 1/3, 1/3$ and $1/3, 2/3, 2/3$ (\term{obverse} setting).
+The \term{reverse} setting with lattice points $1/3, 2/3, 1/3$ and $2/3, 1/3, 2/3$ is not used.
+For the rhombohedral axes, choose the shortest three lattice vectors equivalent to the threefold axis.
+See Fig~\ref{fig:hexagonal_axes} for the projections along $c$ of rhombohedral and hexagonal axes.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/fig_hexagonal_axes.png}
+  \caption{Projections of hexagonal axes of rhombohedral lattice in (a) obverse and (b) reserve settings.}
+  \label{fig:hexagonal_axes}
+\end{figure}
+
+\paragraph{Hexagonal lattice system ($hP$)}
+The vector $\bm{c}$ is parallel to the sixfold axis.
+The $\bm{a}$ and $\bm{b}$ are chosen along twofold axes perpendicular to $\bm{c}$ with angle of $120^{\circ}$.
+
+\paragraph{Cubic lattice system ($cP, cF, cI$)}
+Choose basis vectors parallel to the fourfold axes.
+
+\subsection{Hermann--Mauguin symbol}
+
+\todo{Section 1.4.1 of ITA}
 
 Convention for Hermann-Mauguin symbols is shown in Table~\ref{tab:hermann-mauguin}.
 
@@ -31,11 +78,15 @@ Convention for Hermann-Mauguin symbols is shown in Table~\ref{tab:hermann-maugui
   \end{tabular}
 \end{table}
 
-\todo{How to read H-M symbols}
+\todo{How to read short HM symbols}
 
-\subsection{Alternative descriptions of space groups in ITA}
+The number of generators of space groups can be chosen as at most three.
 
-\subsubsection{Monoclinic system(ITA-2.1.3.15)}
+\subsection{Conventional descriptions of space group types in ITA}
+
+\subsubsection{Axis setting and cell choice for monoclinic crystal system}
+
+(ITA-2.1.3.15)
 
 \todo{Fix unique axes}
 
@@ -91,7 +142,7 @@ Cell choices for monoclinic systems are shown in Table~\ref{table-monoclinic-cel
   \label{fig:monoclinic-choices}
 \end{figure}
 
-\subsubsection{Orthorhombic system}
+\subsubsection{Axis setting for orthorhombic crystal system}
 
 Axis settings for orthorhombic systems are shown in Table~\ref{table-orthorhombic-settings}.
 
@@ -121,6 +172,10 @@ Axis settings for orthorhombic systems are shown in Table~\ref{table-orthorhombi
   \end{tabular}
 \end{table}
 
+\subsubsection{Origin choice for centrosymmetric groups}
+
+\subsubsection{Hexagonal axes}
+
 \subsubsection{Standard ITA setting}
 
 % Space-group type and setting: https://www.cryst.ehu.es/cgi-bin/cryst/programs/nph-def-choice
@@ -128,3 +183,5 @@ The standard ITA setting is one of the conventional descriptions for each space-
 
 
 \subsection{Hall symbol}
+
+Computer adapted symbol
