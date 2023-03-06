@@ -90,104 +90,160 @@ One way to read the HM symbols is as follows (along with the example $Cmc2_{1}$)
 
 \subsection{Conventional descriptions of space group types in ITA}
 
-\subsubsection{Axis setting and cell choice for monoclinic crystal system}
+ITA provides several descriptions for some of the space-group types.
 
-(ITA-2.1.3.15)
+\subsubsection{Setting and cell choice for monoclinic crystal system}
 
-\todo{Fix unique axes}
-
-Axis settings for monoclinic systems are shown in Table~\ref{table-monoclinic-settings}.
-Cell choices for monoclinic systems are shown in Table~\ref{table-monoclinic-cellchoice} and Fig.~\ref{fig:monoclinic-choices}.
-
-\begin{table}[htb]
-  \centering
-  \small
-  \caption{settings of monoclinic system}
-  \label{table-monoclinic-settings}
-  \begin{tabular}{c|cccccc}
-    \hline\hline
-    unique axis & $\mathbf{b}$ & $-\mathbf{b}$ & $\mathbf{c}$ & $-\mathbf{c}$ & $\mathbf{a}$ & $-\mathbf{a}$ \\
-    setting & $\mathbf{a\underline{b}c}$ & $\mathbf{c\underline{\overline{b}}a}$ & $\mathbf{ab\underline{c}}$ & $\mathbf{ba\underline{\overline{c}}}$ & $\mathbf{\underline{a}bc}$ & $\mathbf{\underline{\overline{a}}bc}$ \\
-    \hline
-    \begin{tabular}{c}
-    transformation \\ to $\mathbf{a\underline{b}c}$
-    \end{tabular} &
-      $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$ &
-      $\begin{pmatrix}0& 0&1 \\0& -1&0 \\1& 0&0\end{pmatrix}$ &
-      $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$ &
-      $\begin{pmatrix} 1&0&0 \\ 0&0&1 \\ 0&-1&0 \end{pmatrix}$ &
-      $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$ &
-      $\begin{pmatrix} 0&-1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix}$ \\
-    \hline
-    Cell choice 1 & $C \to C$ & $A \to C$ & $A \to C$ & $B \to C$ & $B \to C$ & $C \to C$ \\
-    Cell choice 2 & $A \to A$ & $C \to A$ & $B \to A$ & $A \to A$ & $C \to A$ & $B \to A$ \\
-    Cell choice 3 & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ & $I \to I$ \\
-    \hline\hline
-  \end{tabular}
-\end{table}
-
-\begin{table}[htb]
-  \centering
-  \caption{transformation of cell choices in monoclinic system}
-  \label{table-monoclinic-cellchoice}
-  \begin{tabular}{c|ccc}
-    \hline\hline
-    choice                 & $b1$                                                & $b2$                                                  & $b3$                                                  \\
-    \hline
-    transformation to $b1$ & $\begin{pmatrix} 1&0&0\\0&1&0\\0&0&1 \end{pmatrix}$ & $\begin{pmatrix} -1&0&1\\0&1&0\\-1&0&0 \end{pmatrix}$ & $\begin{pmatrix} 0&0&-1\\0&1&0\\1&0&-1 \end{pmatrix}$ \\
-    \hline
-    centering              & $C \to C$                                           & $A \to C$                                             & $I \to C$                                             \\
-    \hline\hline
-  \end{tabular}
-\end{table}
+% See Sec.~2.1.3.15 of Ref.~\cite{ITA2016} for more details.
+For monoclinic space groups, ITA gives two options to describe the space groups, \term{setting} (\term{unique axis}) and \term{cell choice}.
+The setting refers to the assignment of labels $a$, $b$, and $c$, which describes which basis vectors directs to the unique symmetry direction.
+After determining the unique axis, there are three possibilities to take the remaining shortest basis vectors perpendicular to the unique axis with a non-acute angle.
+The cell choice refers to the assignment out of the three cell choices.
+See Fig.~\ref{fig:monoclinic-choices} for combinations of settings and cell choices for monoclinic-centered lattices.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=10cm]{figure/monoclinic_choices.eps}
-  \caption{choices of monoclinic system}
+  \includegraphics[width=\textwidth]{figure/fig_monoclinic_settings_cell_choices.png}
+  \caption{
+    Monoclinic-centered lattices.
+    (a) Unique axis $b$:
+      cell choice 1 ($C$-centered cell with $\bm{a}_{1}, \bm{b}, \bm{c}_{1}$),
+      cell choice 2 ($A$-centered cell with $\bm{a}_{2}, \bm{b}, \bm{c}_{2}$),
+      cell choice 3 ($I$-centered cell with $\bm{a}_{3}, \bm{b}, \bm{c}_{3}$).
+    (b) Unique axis $c$:
+      cell choice 1 ($A$-centered cell with $\bm{a}_{1}, \bm{b}, \bm{c}_{1}$),
+      cell choice 2 ($B$-centered cell with $\bm{a}_{2}, \bm{b}, \bm{c}_{2}$),
+      cell choice 3 ($I$-centered cell with $\bm{a}_{3}, \bm{b}, \bm{c}_{3}$).
+    (c) Unique axis $a$:
+      cell choice 1 ($B$-centered cell with $\bm{a}_{1}, \bm{b}, \bm{c}_{1}$),
+      cell choice 2 ($C$-centered cell with $\bm{a}_{2}, \bm{b}, \bm{c}_{2}$),
+      cell choice 3 ($I$-centered cell with $\bm{a}_{3}, \bm{b}, \bm{c}_{3}$).
+  }
   \label{fig:monoclinic-choices}
 \end{figure}
 
-\subsubsection{Axis setting for orthorhombic crystal system}
-
-Axis settings for orthorhombic systems are shown in Table~\ref{table-orthorhombic-settings}.
+The unique axis $b$ setting with cell choice 1 is standard for monoclinic space groups.
+The transformation matrices to the unique axis $b$ are shown in Table~\ref{tab:monoclinic-settings}.
+For the unique axis $b$, the transformation matrices to cell choice 1 are shown in Table~\ref{tab:monoclinic-cell-choice}.
 
 \begin{table}[htb]
   \centering
   \small
-  \caption{settings of orthorhombic system}
-  \label{table-orthorhombic-settings}
-  \begin{tabular}{c|cccccc}
+  \caption{Transformation matrices to unique axis $b$ for monoclinic space groups.}
+  \label{tab:monoclinic-settings}
+  \begin{tabular}{c|ccc}
     \hline\hline
-    settings & $\mathbf{abc}$ & $\mathbf{ba\overline{c}}$ & $\mathbf{cab}$ & $\mathbf{\overline{c}ba}$ & $\mathbf{bca}$ & $\mathbf{a\overline{c}b}$ \\
-    \hline\hline
-    \begin{tabular}{c}
-    transformation \\ to $\mathbf{abc}$
-    \end{tabular} &
-      $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$ &
-      $\begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&-1 \end{pmatrix}$ &
-      $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$ &
-      $\begin{pmatrix} 0&0&-1 \\ 0&1&0 \\ 1&0&0 \end{pmatrix}$ &
-      $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$ &
-      $\begin{pmatrix} 1&0&0 \\ 0&0&-1 \\ 0&1&0 \end{pmatrix}$ \\
+    Setting (unique axis) & $b$ & $c$ & $a$ \\
     \hline
-    centering & $A \to A$ & $A \to B$ & $A \to C$ & $A \to C$ & $A \to B$ & $A \to A$ \\
-              & $B \to B$ & $B \to A$ & $B \to A$ & $B \to B$ & $B \to C$ & $B \to C$ \\
-              & $C \to C$ & $C \to C$ & $C \to B$ & $C \to A$ & $C \to A$ & $C \to B$ \\
+    Transformation to unique axis $b$ &
+      $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$ &
+      $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$ &
+      $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$ \\
+    Cell choice 1 & $C \to C$ & $A \to C$ & $B \to C$ \\
+    Cell choice 2 & $A \to A$ & $B \to A$ & $C \to A$ \\
+    Cell choice 3 & $I \to I$ & $I \to I$ & $I \to I$ \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \centering
+  \caption{Transformation matrices to cell choice 1 for monoclinic space groups with the unique axis $b$.}
+  \label{tab:monoclinic-cell-choice}
+  \begin{tabular}{c|ccc}
+    \hline\hline
+    Cell choice & 1 & 2 & 3 \\
+    \hline
+    Transformation to cell choice 1
+      & $\begin{pmatrix} 1&0&0\\0&1&0\\0&0&1 \end{pmatrix}$
+      & $\begin{pmatrix} -1&0&1\\0&1&0\\-1&0&0 \end{pmatrix}$
+      & $\begin{pmatrix} 0&0&-1\\0&1&0\\1&0&-1 \end{pmatrix}$ \\
+    Centering & $C \to C$ & $A \to C$ & $I \to C$ \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Setting for orthorhombic crystal system}
+
+For a conventional basis $\bm{a}$, $\bm{b}$, and $\bm{c}$ of an orthorhombic crystal system, ITA gives the following six permutations of axes,
+\begin{align*}
+  \mathbf{abc}, \mathbf{ba\overline{c}}, \mathbf{cab}, \mathbf{\overline{c}ba}, \mathbf{bca}, \mathbf{a\overline{c}b},
+\end{align*}
+where the overline (e.g. $\mathbf{\overline{a}}$) indicates the negative direction.
+The transformation matrices from each setting to $\mathbf{abc}$ are shown in Table~\ref{tab:orthorhombic-settings}.
+
+\begin{table}[htb]
+  \centering
+  \small
+  \caption{Transformation matrices to $\mathbf{abc}$ for orthorhombic space groups.}
+  \label{tab:orthorhombic-settings}
+  \begin{tabular}{ccc}
+    \hline\hline
+    Setting & Transformation to $\mathbf{abc}$ & Centering \\
+    \hline
+    $\mathbf{abc}$
+       & $\begin{pmatrix} 1& 0&0 \\ 0& 1&0 \\ 0& 0&1 \end{pmatrix}$
+       & $A \to A, B \to B, C \to C$ \\
+    $\mathbf{ba\overline{c}}$
+      & $\begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&-1 \end{pmatrix}$
+      & $A \to B, B \to A, C \to C$ \\
+    $\mathbf{cab}$
+      & $\begin{pmatrix}0& 0&1 \\1& 0&0 \\0& 1&0\end{pmatrix}$
+      & $A \to C, B \to A, C \to B$ \\
+    $\mathbf{\overline{c}ba}$
+      & $\begin{pmatrix} 0&0&-1 \\ 0&1&0 \\ 1&0&0 \end{pmatrix}$
+      & $A \to C, B \to B, C \to A$ \\
+    $\mathbf{bca}$
+      & $\begin{pmatrix} 0&1&0 \\ 0&0&1 \\ 1&0&0 \end{pmatrix}$
+      & $A \to B, B \to C, C \to A$ \\
+    $\mathbf{a\overline{c}b}$
+      & $\begin{pmatrix} 1&0&0 \\ 0&0&-1 \\ 0&1&0 \end{pmatrix}$
+      & $A \to A, B \to C, C \to B$ \\
     \hline\hline
   \end{tabular}
 \end{table}
 
 \subsubsection{Origin choice for centrosymmetric groups}
 
-\subsubsection{Hexagonal axes}
+We refer to space groups with an inversion symmetry as \term{centrosymmetric}.
+Otherwise, we call space groups without an inversion symmetry as \term{noncentrosymmetric}.
+For noncentrosymmetric space groups, the origin is chosen at a point of the highest site-symmetry as conventions.
+For centrosymmetric space groups, ITA gives the two descriptions for the origins at
+\begin{itemize}
+  \item (Origin choice 1) a point of the highest site-symmetry;
+  \item (Origin choice 2) an inversion center.
+\end{itemize}
+The origin choice 2 is standard for centrosymmetric space groups\footnote{
+  Be careful \texttt{Spglib} chooses the origin choice 1 as default.
+}.
 
-\subsubsection{Standard ITA setting}
+\subsubsection{Hexagonal axes for rhombohedral space groups}
 
-% Space-group type and setting: https://www.cryst.ehu.es/cgi-bin/cryst/programs/nph-def-choice
-The standard ITA setting is one of the conventional descriptions for each space-group type used in the \textit{International Tables for Crystallography Vol. A} \cite{ITA2016}: unique axis b setting, cell choice 1 for monoclinic groups, hexagonal axes for rhombohedral groups, and origin choice 2 for centrosymmetric groups.
+For rhombohedral space groups, ITA describes them with the (obverse) hexagonal axes and the rhombohedral axes.
+The hexagonal axes are standard.
+One of the transformation matrices from the rhombohedral cell to the obverse hexagonal cell is
+\begin{align*}
+  \begin{pmatrix}
+    1 & 0 & 1 \\
+    -1 & 1 & 1 \\
+    0 & -1 & 1 \\
+  \end{pmatrix},
+\end{align*}
+and its inverse transformation from the obverse hexagonal cell to the primitive rhombohedral cell is
+\begin{align*}
+  \begin{pmatrix}
+    \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\
+    \frac{1}{3} & \frac{1}{3} & -\frac{2}{3} \\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\
+  \end{pmatrix}.
+\end{align*}
 
+\subsubsection{Standard setting}
+
+In summary, \href{https://www.cryst.ehu.es/cgi-bin/cryst/programs/nph-def-choice}{the standard setting} is one of the conventional descriptions for each space-group type used in the ITA \cite{ITA2016}: unique axis b setting, cell choice 1 for monoclinic space groups, hexagonal axes for rhombohedral space groups, and origin choice 2 for centrosymmetric space groups.
 
 \subsection{Hall symbol}
+
+Hall symbol \cite{Hall:a19707}
 
 Computer adapted symbol
