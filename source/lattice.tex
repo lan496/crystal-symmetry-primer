@@ -2,48 +2,68 @@
 
 References: \cite{Hart2008,Hart2009,Cohen1993,CSE206A}
 
-\subsection{Lattice}
-
-\subsubsection{Choice of basis vectors of lattice}
+\subsection{Basis of lattice and unimodular matrix}
 
 The choice of basis vectors is not unique for a given lattice.
 A lattice spanned by basis vectors $( \bm{a}_{1}, \dots, \bm{a}_{n} )$ and a lattice spanned by
-\begin{align*}
-  ( \bm{a}_{1}', \dots, \bm{a}_{n}' ) \coloneqq ( \bm{a}_{1}, \dots, \bm{a}_{n} ) \bm{P} \quad (\bm{P} \in \mathbb{R}^{n \times n})
-\end{align*}
-coincide if and only if $\bm{P} \in \mathrm{SL}(n, \mathbb{Z})$, where $ \mathrm{SL}(n, \mathbb{Z})$ is the set of $n \times n$ unimodular matrices.
+\begin{align}
+  ( \bm{a}_{1}', \dots, \bm{a}_{n}' ) \coloneqq ( \bm{a}_{1}, \dots, \bm{a}_{n} ) \bm{P}
+\end{align}
+coincide if and only if $\bm{P}$ is a unimodular matrix, which is an integer matrix with $\det \bm{P} = \pm 1$\footnote{
+  Let $L_{\bm{A}}$ be a lattice spanned by basis $\bm{A} = ( \bm{a}_{1}, \dots, \bm{a}_{n} )$.
+  When $\bm{P}$ is unimodular, $L_{\bm{A}}$ contains $L_{\bm{AP}}$ because $\bm{P}$ is an integer matrix; $L_{\bm{AP}}$ contains $L_{\bm{A}}$ because the inverse of the unimodular matrix, $\bm{P}^{-1}$, is also an integer matrix; Thus, $L_{\bm{A}}$ and $L_{\bm{AP}}$ coincide.
+  Conversely, when $L_{\bm{A}}$ and $L_{\bm{AP}}$ coincide, both $\bm{P}$ and $\bm{P}^{-1}$ should be integer matrices; Then, $\bm{P}$ is a unimodular matrix.
+}.
 
-\subsubsection{Delaunay reduction}
+% \subsubsection{Delaunay reduction}
+%
+% The Delaunay reduction\footnote{
+%   Named after Boris Nikolayevich Delaunay or Delone.
+% } is one of the lattice reduction algorithms to obtain a standardized basis.
+% Given a basis $(\bm{b}_{1}, \dots, \bm{b}_{n})$, the Delaunay reduction updates the basis as follows:
+% \begin{enumerate}
+%   \item Consider a extended vector $\bm{b}_{n+1} \coloneqq -\sum_{i=1}^{n} \bm{b}_{i}$;
+%   \item If $\bm{b}_{i} \cdot \bm{b}_{j}$ is positive for some $1 \leq i < j \leq n + 1$, update the basis as
+%     \begin{equation}
+%     \begin{aligned}
+%       \bm{b}_{i}' &= -\bm{b}_{i} \\
+%       \bm{b}_{j}' &= \bm{b}_{j} \\
+%       \bm{b}_{k}' &= \bm{b}_{i} + \bm{b}_{k} \quad (k \neq i, j)
+%     \end{aligned}
+%     \end{equation}
+%   \item Go back to the initial step until all products $\bm{b}_{i} \cdot \bm{b}_{j}$ are non-positive.
+% \end{enumerate}
+%
+% until the sum
+% \begin{align}
+%   S = \sum_{i=1}^{n} \norm{\bm{b}_{i}}^{2}
+% \end{align}
+% cannot be decreased as follows:
 
 \subsection{Sublattice, Hermite normal form, and their applications}
 
-\subsubsection{Sublattices and their equivalence}
+\subsubsection{Sublattices}
 
 A \term{sublattice} is a subset of lattice $L$ obtained by removing some lattice points from $L$\footnote{
   In other fields than mathematics and crystallography, a substructure of a crystal structure is called a ``sublattice'', and a superstructure of a crystal structure is called a ``superlattice''.
 }.
 A set of basis vectors of the sublattice is identified with the transformation matrix $\bm{M}$ such that the original set of basis vectors $\bm{A}$ is transformed into a new set of basis vectors $\bm{AM}$.
-Therefore, the sublattice $L_{\bm{M}}$ is the set of lattice points expressed as
+Therefore, the sublattice $L_{\bm{AM}}$ is the set of lattice points expressed as
 \begin{align}
-  L_{\bm{M}} = \set{ \bm{AMn} }{ \bm{n} \in \mathbb{Z}^{3} }.
+  L_{\bm{AM}} = \set{ \bm{AMn} }{ \bm{n} \in \mathbb{Z}^{3} }.
 \end{align}
-We refer to the absolute value of the determinant of $\bm{M}$, $\det \bm{M}$, as the index of the sublattice $L_{\bm{M}}$.
-The index is identical to the number of lattice points in the sublattice $L_{\bm{M}}$.
+We refer to the absolute value of the determinant of $\bm{M}$, $\det \bm{M}$, as the index of the sublattice $L_{\bm{AM}}$.
+The index is identical to the number of lattice points in the sublattice $L_{\bm{AM}}$.
 
 \subsubsection{Hermite normal form}
 
-Let $\bm{U}$ be a three-dimensional square unimodular matrix, where all elements are integers and $\det \, \bm{U} = \pm 1$.
-Two matrices $\bm{M}$ and $\bm{MU}$ are equivalent in terms of lattice transformation.
-This means that they derive the same sublattice expressed as
+Let $\bm{U}$ be a three-dimensional square unimodular matrix.
+Two transformation matrices $\bm{M}$ and $\bm{MU}$ give the same sublattice, $L_{\bm{AM}} = L_{\bm{AMU}}$.
+Among the equivalent transformation matrices, their representative can be chosen by the \term{Hermite normal form} (HNF).
+A transformation matrix $\mathbf{M}$ can be converted to a unique lower-triangular integer matrix, HNF, by multiplying a unimodular matrix $\mathbf{U'}$ from the right with
 \begin{align}
-    L_{\bm{M}} = L_{\bm{MU}}.
-\end{align}
-
-Their representative can be the canonical form called the \term{Hermite normal form} (HNF).
-Any transformation matrix $\mathbf{M}$ can be converted to a unique form of the lower-triangular integer matrix, HNF, by multiplying the unimodular matrix $\mathbf{U'}$ from the right satisfying the relationship
-\begin{equation}
     \label{eq:HNF}
-    \mathbf{MU'} =
+    \bm{MU'} =
     \left(
     \begin{array}{ccc}
          a & 0 & 0 \\
@@ -51,7 +71,7 @@ Any transformation matrix $\mathbf{M}$ can be converted to a unique form of the 
          d & e & f
     \end{array}
     \right),
-\end{equation}
+\end{align}
 where $a > 0$, $0 \leq b < c$, $0 \leq d < f$, and $0 \leq e < f$.
 % More mathematically it results from the fact $\mathbf{U}^{-1}$ is also a unimodular matrix.
 % HNF
@@ -70,11 +90,84 @@ It has a (column-style) Hermite normal form $\bm{H}$ if there exists a unimodula
 
 If $\mathbf{M}$ is full rank, the Hermite normal form $\bm{H}$ is uniquely determined.
 
-\subsubsection{Example to compute HNF}
+\subsubsection{\label{sec:hnf-computation}Procedure to compute HNF}
+
+We can obtain the HNF of an integer matrix by applying the following elementary operations consecutively,
+\begin{itemize}
+  \item (Column swap) swapping the $i$th and $j (\neq i)$th columns,
+  \item (Column sign change) multiplying the $i$th column by $-1$,
+  \item (Column addition) adding $k \in \mathbb{Z}$ multiples of the $j$th column to the $i$th column.
+\end{itemize}
+The coefficient $k$ in the column addition should be an integer because the matrix should be an integer matrix after applying the operation.
+
+For a given integer matrix $\bm{M} \in \mathbb{Z}^{m \times n}$, we process from the first to the $m$th rows.
+When we process the $s$th row, we select the $i^{\ast}$th column such that $i^{\ast} = \underset{i = s, \dots, n, M_{si} \neq 0}{\arg\min} |M_{si}|$;
+we add the $i^{\ast}$ column to the other $j$th columns so that $|M_{sj}|$ decreases;
+We continue this process until all $|M_{sj}|$ cannot decrease.
+
+Here is an example to compute HNF for a two-dimensional matrix.
+\begin{align*}
+  \begin{pmatrix}
+    20 & -6 \\
+    -2 & 1 \\
+  \end{pmatrix}
+  &\overset{\mbox{swap}}{\longrightarrow}
+  \begin{pmatrix}
+    -6 & 20 \\
+    1 & -2 \\
+  \end{pmatrix}
+  \overset{\mbox{sign}}{\longrightarrow}
+  \begin{pmatrix}
+    6 & 20 \\
+    -1 & -2 \\
+  \end{pmatrix}
+  \overset{\mbox{add}}{\longrightarrow}
+  \begin{pmatrix}
+    6 & 2 \\
+    -1 & 1 \\
+  \end{pmatrix}
+  \overset{\mbox{swap}}{\longrightarrow}
+  \begin{pmatrix}
+    2 & 6 \\
+    1 & -1 \\
+  \end{pmatrix} \\
+  &\overset{\mbox{add}}{\longrightarrow}
+  \begin{pmatrix}
+    2 & 0 \\
+    1 & -4 \\
+  \end{pmatrix}
+  \overset{\mbox{sign}}{\longrightarrow}
+  \begin{pmatrix}
+    2 & 0 \\
+    1 & 4 \\
+  \end{pmatrix}
+\end{align*}
 
 \subsubsection{Union of lattices}
 
-Just compute HNF!
+We introduce the procedure to take the union of lattices as an application of HNF.
+Given dependent vectors $\bm{b}_{1}, \dots, \bm{b}_{k} \in \mathbb{Z}^{n}$, we find the smallest basis $\bm{b}_{1}', \dots, \bm{b}_{r}' \, (r \leq k)$ with
+\begin{align*}
+  L_{\left( \bm{b}_{1}, \dots, \bm{b}_{k} \right)} = L_{ \left( \bm{b}_{1}', \dots, \bm{b}_{r}' \right) }.
+\end{align*}
+It is easily solved by computing the HNF of $\left( \bm{b}_{1}, \dots, \bm{b}_{k} \right)$ and taking nonzero columns.
+
+For example, consider the union of a $2 \times 2 \times 2$ sublattice and a body-centering translation.
+The HNF of the basis vectors is
+\begin{align*}
+  \begin{pmatrix}
+    2 & 0 & 0 & 1 \\
+    0 & 2 & 0 & 1 \\
+    0 & 0 & 2 & 1 \\
+  \end{pmatrix}
+  \longrightarrow
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    1 & 2 & 0 & 0 \\
+    1 & 0 & 2 & 0 \\
+  \end{pmatrix}.
+\end{align*}
+Thus, the union of lattices is spanned by $\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$, $\begin{pmatrix} 0 \\ 2 \\ 0 \end{pmatrix}$, and $\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}$.
 
 \subsubsection{\label{sec:integer-linear-system}Integer linear system}
 
@@ -102,45 +195,77 @@ A general solution for $\bm{Hy}=\bm{0}$ is given by
 
 \subsubsection{Distinct lattice points in sublattice}
 
-When we consider the translational symmetry of a sublattice $L_{\bm{M}}$, two lattice points $\bm{m}, \bm{m}$ are equivalent if the distance between the two lattice points is a translation of $L_{\bm{M}}$, that is,
+When we consider the translational symmetry of a sublattice $L_{\bm{AM}}$, two lattice points, $\bm{m}$ and $\bm{m}$, are equivalent if the displacement between the two lattice points is a translation of $L_{\bm{AM}}$, that is,
 \begin{align}
   \label{eq:equiv-lattice-points}
   \bm{m} - \bm{m}' \in \bm{M}\mathbb{Z}^{3}.
 \end{align}
 
-The SNF of the transformation matrix $\mathbf{M}$ is useful to concretely write down Eq.~\eqref{eq:equiv-lattice-points}.
+The \term{Smith normal form} (SNF) of the transformation matrix $\mathbf{M}$ is useful to concretely write down Eq.~\eqref{eq:equiv-lattice-points} \cite{PhysRevB.77.224115}.
 The SNF is one of the decompositions of an integer matrix $\mathbf{M}$ as
 \begin{align}
   \label{eq:SNF}
-  \bm{S} = \bm{PMQ},
+  \bm{D} = \bm{PMQ},
 \end{align}
-where $\bm{P}$ and $\bm{Q}$ are unimodular matrices, and $\mathbf{S}$ is a diagonal integer matrix,
+where $\bm{P}$ and $\bm{Q}$ are unimodular matrices, and $\mathbf{D}$ is a diagonal integer matrix,
 \begin{align}
-  \bm{S} =
+  \bm{D} =
       \begin{pmatrix}
-          S_{11} & 0 & 0 \\
-          0 & S_{22} & 0 \\
-          0 & 0 & S_{33}
+          D_{11} & 0 & 0 \\
+          0 & D_{22} & 0 \\
+          0 & 0 & D_{33}
       \end{pmatrix}.
 \end{align}
-Here $S_{11}$ is a divisor of $S_{22}$, and $S_{22}$ is a divisor of $S_{33}$.
+Here $D_{11}$ is a divisor of $D_{22}$, and $D_{22}$ is a divisor of $D_{33}$.
 We can rewrite Eq.~\eqref{eq:equiv-lattice-points} with Eq.~\eqref{eq:SNF} as
 \begin{align}
   \label{eq:equiv-represents}
-  [\bm{Pm}]_{\bm{S}} = [\bm{Pm}']_{\bm{S}},
+  \bm{m} - \bm{m}' \in \bm{M} \mathbb{Z}^{3}
+    &\Leftrightarrow \bm{m} - \bm{m}' \in \bm{P}^{-1} \bm{D} \mathbb{Z}^{3} \nonumber \\
+    &\Leftrightarrow \bm{Pm} - \bm{Pm}' \in \bm{D} \mathbb{Z}^{3} \nonumber \\
+    &\Leftrightarrow [\bm{Pm}]_{\bm{D}} = [\bm{Pm}']_{\bm{D}},
 \end{align}
-where $[\cdot]_{\bm{S}}$ indicates to take modulus for the $i$th row by $S_{ii}$.
-We mention that the range of $[\cdot]_{\mathbf{S}}$ is $\mathbb{Z}_{S_{11}} \times \mathbb{Z}_{S_{22}} \times \mathbb{Z}_{S_{33}}$ because a value of the $i$th row is a remainder by $S_{ii}$.
+where $[\cdot]_{\bm{D}}$ indicates to take modulus for the $i$th row by $D_{ii}$.
+We mention that the range of $[\cdot]_{\mathbf{S}}$ is $\mathbb{Z}_{D_{11}} \times \mathbb{Z}_{D_{22}} \times \mathbb{Z}_{D_{33}}$ because a value of the $i$th row is a remainder by $D_{ii}$.
+
+For example, Fig.~\ref{fig:hnf_supercell} shows a sublattice of the square two-dimensional lattice with a transformation matrix
+\begin{align*}
+  \bm{M} =
+  \begin{pmatrix}
+    2 & 0 \\
+    1 & 4 \\
+  \end{pmatrix}.
+\end{align*}
+The SNF of the transformation matrix is
+\begin{align*}
+  \begin{pmatrix} 1 & 0 \\ 0 & 8 \end{pmatrix}
+  =
+  \begin{pmatrix} 0 & 1 \\ -1 & 2 \end{pmatrix}
+  \bm{M}
+  \begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix}.
+\end{align*}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figure/fig_supercell.png}
+  \caption{
+    Lattice points in a sublattice.
+    The distinct lattice points are labeled with different colors.
+  }
+  \label{fig:hnf_supercell}
+\end{figure}
+
+
 
 \subsubsection{Smith normal form}
 
-Let $\bm{M}$ be $m \times n$ integer matrix.
-There exist some unimodular matrices $\bm{L} \in \mathbb{Z}^{m \times m}$ and $\bm{R} \in \mathbb{Z}^{n \times n}$ such that
+Let us generalize SNFs to $m \times n$ integer matrix $\bm{M}$.
+There exist some unimodular matrices $\bm{P} \in \mathbb{Z}^{m \times m}$ and $\bm{Q} \in \mathbb{Z}^{n \times n}$ such that
 
 \begin{align}
     \bm{D}
     \coloneqq
-    \bm{LMR}
+    \bm{PMQ}
     =
     \begin{pmatrix}
         d_{1}  &        & \bm{O} & \bm{0} \\
@@ -152,12 +277,23 @@ There exist some unimodular matrices $\bm{L} \in \mathbb{Z}^{m \times m}$ and $\
 where $d_{i}$ is positive integer and $d_{i+1}$ devides $d_{i}$.
 Then $\bm{D}$ is called Smith normal form.
 
-\subsubsection{Extended Euclidean algorithm}
-
-\url{https://twitter.com/tmaehara/status/1431205927353528321}
-
 \subsubsection{Procedure to compute SNF}
 
+The SNF can be obtained by the elementary operations in Sec.~\ref{sec:hnf-computation} for both column-wise and row-wise.
+After we process the $s$th row and column, the matrix looks
+\begin{align*}
+  \left(
+    \begin{array}{ccc|c}
+      d_{1} &        & \bm{O} &        \\
+             & \ddots &        & \bm{O} \\
+      \bm{O} &        & d_{s}  &        \\ \hline
+             & \bm{O} &        & \ast   \\
+    \end{array}
+  \right)
+\end{align*}
+and the remained submatrix $\ast$ should be multiples of $d_{s}$.
+
+Here is an example to compute HNF for a three-dimensional matrix.
 \begin{align*}
   \begin{pmatrix}        2 & 4 & 4 \\        -6 & 6 & 12 \\        10 & -4 & -16 \\    \end{pmatrix}
   &\to    \begin{pmatrix}        2 & 0 & 0 \\        -6 & 18 & 24 \\        10 & -24 & -36 \\    \end{pmatrix}
@@ -171,10 +307,10 @@ Then $\bm{D}$ is called Smith normal form.
 \subsubsection{Frobenius congruent}
 
 For given $\bm{A} \in \mathbb{Z}^{m \times n}$ and $\bm{b} \in \mathbb{Z}^{m}$, consider to solve Frobenius congruent $\bm{Ax} \equiv \bm{b} \, (\mathrm{mod}\, \mathbb{R}/\mathbb{Z})$ for $\bm{x} \in \mathbb{R}^{n}$.
-Let SNF of $\bm{A}$ be $\bm{D} = \bm{LAR}$, where $\bm{L}$ and $\bm{R}$ are unimodular matrices.
+Let SNF of $\bm{A}$ be $\bm{D} = \bm{PAQ}$, where $\bm{P}$ and $\bm{Q}$ are unimodular matrices.
 \begin{align}
-  \bm{LAx} &= \bm{Lb} + \mathbb{Z}^{n} \\
-  \bm{Dy}  &= \bm{v} + \mathbb{Z}^{n} \quad \mbox{where}\, \bm{y}:= \bm{R}^{-1} \bm{x},\, \bm{v}:= \bm{Lb} \\
+  \bm{PAx} &= \bm{Pb} + \mathbb{Z}^{n} \\
+  \bm{Dy}  &= \bm{v} + \mathbb{Z}^{n} \quad \mbox{where}\, \bm{y}:= \bm{Q}^{-1} \bm{x},\, \bm{v}:= \bm{Pb} \\
   \bm{y}
     &= \begin{pmatrix} \frac{v_{1}}{D_{11}} \\ \vdots \\ \frac{v_{r}}{D_{rr}} \\ 0 \\ \vdots \\ 0 \end{pmatrix}
         + \begin{pmatrix} \frac{1}{D_{11}} n_{1} \\ \vdots \\ \frac{1}{D_{rr}} n_{r} \\ 0 \\ \vdots \\ 0 \end{pmatrix}
