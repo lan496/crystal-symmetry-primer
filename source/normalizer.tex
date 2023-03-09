@@ -1,78 +1,235 @@
-\section{\label{sec:normalizer}Site symmetry group and normalizer}
+\section{\label{sec:normalizer}Normalizer}
+
+The normalizer of a space group is a useful notion to consider the arbitrariness of coordinate transformations and devise classifications and algorithms for space groups.
 
 \subsection{Euclidean normalizer and affine normalizer}
 
-\todo{The condition Euclidean normalizer has continuous translations.}
+In general, a \term{normalizer} of a subgroup $H$ in a group $G$ is defined as
+\begin{align}
+  \mathcal{N}_{G}(H) \coloneqq \set{ g \in G }{ H^{g} = H }.
+\end{align}
+The subgroup $H$ is the normal subgroup of the normalizer, $H \trianglelefteq \mathcal{N}_{G}(H) \leq G$.
 
-\subsection{Wyckoff set, equivalent descriptions of crystal structure}
+\begin{screen}
+  \begin{defn}[Euclidean normalizer]
+    The \term{Euclidean normalizer} of a space group $\mathcal{G}$ is a normalizer of $\mathcal{G}$ in $\mathcal{E}_{3}$,
+    \begin{align}
+      \mathcal{N}_{\mathcal{E}_{3}}(\mathcal{G}) \coloneqq \set{ (\bm{P}, \bm{p}) \in \mathcal{E}_{3} }{ (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G} }.
+    \end{align}
+  \end{defn}
+\end{screen}
 
-\subsection{Normalizer action on vector system}
+\begin{screen}
+  \begin{defn}[Affine normalizer]
+    The \term{affine normalizer} of a space group $\mathcal{G}$ is a normalizer of $\mathcal{G}$ in $\mathcal{A}_{3}$,
+    \begin{align}
+      \mathcal{N}_{\mathcal{A}_{3}}(\mathcal{G}) \coloneqq \set{ (\bm{P}, \bm{p}) \in \mathcal{A}_{3} }{ (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G} }.
+    \end{align}
+  \end{defn}
+\end{screen}
 
-Section 4.3 of Ref.~\cite{Souvignier08}
+The Euclidean and affine normalizers of a space group $\mathcal{G}$ may not be space groups: when the geometric crystal class of $\mathcal{G}$ is a pyroelectric point group, its normalizer has continuous translations along the polar direction.
+
+The lists of Euclidean and affine normalizers of space groups are given in Sec.~3.5 of ITA \cite{ITA2016}.
+When a translation lattice of $\mathcal{G}$ has a specialized metric, the Euclidean normalizer may have higher symmetry than other general cases.
+
+\subsection{Wyckoff set and equivalent descriptions of crystal structure}
+
+We define the Wyckoff position in Sec.~\ref{sec:conjugation_wyckoff} to classify points under the action of a space group.
+However, the definition of the Wyckoff position depends on the coordinates system and two Wyckoff positions may be interchanged by a transformation.
+For example, consider \ce{Ag3PO4} with $P\overline{4}3n$ (No. 218) \footnote{
+  This example is adapted from Sec.~3.5.3.2 of ITA \cite{ITA2016}.
+}.
+Let $\mathcal{G}$ be a space-group representative of $P\overline{4}3n$.
+The coset representatives of the Euclidean normalizer over $\mathcal{G}$ are
+\begin{align*}
+  \mathcal{N}_{\mathcal{E}_{3}}(\mathcal{G}) / \mathcal{G}:
+    x,y,z;
+    x + 1/2, y + 1/2, z + 1/2;
+    \overline{x}, \overline{y}, \overline{z};
+    \overline{x} + 1/2, \overline{y} + 1/2, \overline{z} + 1/2.
+\end{align*}
+Table~\ref{tab:equivalent-descriptions-example} shows four equivalent descriptions of the crystal structure obtained by the four coset representatives.
+The Wyckoff positions $c$ and $d$ are interchanged by the inversion.
+
+\begin{table}[htb]
+  \begin{subtable}[h]{0.45\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+      \ce{P} & \ce{Ag} & \ce{O} \\
+      \hline
+      $2a$ & $6d$ & $8e$ \\
+      \hline
+      0 & 1/4 & $x=0.1486$ \\
+      0 & 0   & $x$ \\
+      0 & 1/2 & $x$ \\
+    \end{tabular}
+    \caption{$x, y, z$}
+  \end{subtable}
+  \hfill
+  \begin{subtable}[h]{0.45\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+      \ce{P} & \ce{Ag} & \ce{O} \\
+      \hline
+      $2a$ & $6c$ & $8e$ \\
+      \hline
+      0 & 1/4 & $x=0.1486$ \\
+      0 & 1/2 & $x$ \\
+      0 & 0   & $x$ \\
+    \end{tabular}
+    \caption{$x + 1/2, y + 1/2, z + 1/2$}
+  \end{subtable}
+  \hfill
+  \begin{subtable}[h]{0.45\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+      \ce{P} & \ce{Ag} & \ce{O} \\
+      \hline
+      $2a$ & $6d$ & $8e$ \\
+      \hline
+      0 & 1/4 & $x=-0.1486$ \\
+      0 & 0   & $x$ \\
+      0 & 1/2 & $x$ \\
+    \end{tabular}
+    \caption{$\overline{x}, \overline{y}, \overline{z}$}
+  \end{subtable}
+  \hfill
+  \begin{subtable}[h]{0.45\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+      \ce{P} & \ce{Ag} & \ce{O} \\
+      \hline
+      $2a$ & $6c$ & $8e$ \\
+      \hline
+      0 & 1/4 & $x=-0.1486$ \\
+      0 & 1/2 & $x$ \\
+      0 & 0   & $x$ \\
+    \end{tabular}
+    \caption{$\overline{x} + 1/2, \overline{y} + 1/2, \overline{z} + 1/2$}
+  \end{subtable}
+  \caption{Equivalent descriptions of \ce{Ag3PO4} with $P\overline{4}3n$ resulting from its Euclidean normalizer.}
+  \label{tab:equivalent-descriptions-example}
+\end{table}
+
+% Wyckoff sequence \cite{https://doi.org/10.1107/S0021889887086965}
+
+The coarser classification of points that merges interchanged Wyckoff positions is called a \term{Wyckoff set}.
+\begin{screen}
+  \begin{defn}[Wyckoff set]
+    Two points $\bm{x}$ and $\bm{y}$ belong to the same \term{Wyckoff set} for a space group $\mathcal{G}$ if their site-symmetry groups are conjugate subgroups of the affine normalizer $\mathcal{N}_{\mathcal{A}_{3}}(\mathcal{G})$.
+  \end{defn}
+\end{screen}
+Here we define the equivalence under the affine normalizer not the Euclidean normalizer because the Euclidean normalizer depends on the translation lattice of $\mathcal{G}$ and make the classification complicated.
+The list of Wyckoff sets is given in \href{https://www.cryst.ehu.es/html/cryst/wyckoffsets.html}{Bilbao Crystallographic Server}.
+
+% \subsection{Normalizer action on vector system}
+%
+% Section 4.3 of Ref.~\cite{Souvignier08}
 
 \subsection{Derivation of Euclidean normalizer}
 
-If $( \bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, for all $(\bm{W}, \bm{w}) \in \mathcal{G}$, there exists a symmetry operation $(\bm{W}', \bm{w}') in \mathcal{G}$ such that
-\begin{align}
-    \det \bm{P} &\neq 0 \\
-    (\bm{P}, \bm{p}) (\bm{W}, \bm{w}) (\bm{P}, \bm{p})^{-1} &= (\bm{W}', \bm{w}'),
-\end{align}
-where
-\begin{align}
-  \bm{W}' &= \bm{P} \bm{W} \bm{P}^{-1} \\
-  \bm{w}' &= \bm{p} + \bm{Pw} - \bm{PW}\bm{P}^{-1}\bm{p}.
-\end{align}
+\subsubsection{Basis vectors of Euclidean and affine normalizers}
 
-\subsubsection{Basis vectors of Euclidean normalizer}
-
-If $( \bm{E} | \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G}) $, for all $(\bm{W}, \bm{w} ) \in \mathcal{S}$, there exists a symmetry operation $(\bm{W}', \bm{w}' ) \in \mathcal{S}$ such that
+If $( \bm{E}, \bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G}) $, for all $(\bm{W}, \bm{w} ) \in \mathcal{G}$, there exists a symmetry operation $(\bm{W}', \bm{w}' ) \in \mathcal{G}$ such that
 \begin{align}
   \bm{W}' &= \bm{W} \\
   \bm{w}' &= \bm{p} + \bm{w} - \bm{Wp}.
 \end{align}
 
 When we take a primitive basis, the translation lattice is identified as $\mathbb{Z}^{n}$.
-If $(\bm{W}, \bm{w} ), (\bm{W}, \bm{w}') \in \mathcal{S}$,
+If $(\bm{W}, \bm{w} ), (\bm{W}, \bm{w}') \in \mathcal{G}$, we obtain
 \begin{align}
-  (\bm{W}, \bm{w}')^{-1} (\bm{W}, \bm{w}) = (\bm{E}, \bm{w} - \bm{w}' ) \in \mathcal{S}.
+  (\bm{W}, \bm{w}')^{-1} (\bm{W}, \bm{w}) = (\bm{E}, \bm{w} - \bm{w}' ) \in \mathcal{G}.
 \end{align}
 Thus, $\mathbf{w} - \mathbf{w}' \in \mathbb{Z}^{n}$.
 
-In summary, the condition that $(\bm{E}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$ is equivalent to
+In summary, the condition that $(\bm{E}, \bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G})$ is equivalent to
 \begin{align}
   \label{eq:normalizer-basis}
-  (\bm{E} - \bm{W} ) \bm{p} = \bm{0} ( \mathrm{mod} \, \mathbb{Z}^{n} )
+  (\bm{E} - \bm{W} ) \bm{p} \equiv \bm{0} ( \mathrm{mod} \, \mathbb{Z}^{n} )
 \end{align}
 for all $(\bm{W}, \bm{w}) \in \mathcal{G}$.
-
-Conversely, a set of operations $(\bm{E}, \bm{p})$ satisfying Eq.~\eqref{eq:normalizer-basis} is a subgroup of $\mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$.
-
+Conversely, a set of operations $(\bm{E}, \bm{p})$ satisfying Eq.~\eqref{eq:normalizer-basis} is a subgroup of $\mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G})$.
 The linear integer system of Eq.~\eqref{eq:normalizer-basis} can be solved by its Hermite or Smith normal form (see Sec.~\ref{sec:integer-linear-system}).
-
 Because the above discussion is independent of whether an operation is an isometry or not, basis vectors of the Euclidean normalizer and affine normalizer can coincide.
 
+% When the polar direction has no symmetry-equivalent directions, the normalizer contains continuous translations.
+If the normalizer has a continuous translation along $\bm{v}$, $\bm{v}$ should be an eigenvector with eigenvalue 1 for all linear parts $\bm{W} \in \mathcal{P}(\mathcal{G})$.
+The geometric crystal classes with such a polar direction are called \term{pyroelectric point groups}.
+In three dimensions, the pyroelectric point groups are
+\begin{itemize}
+  \item $1$
+  \item $2 (C_{2}), 3 (C_{3}), 4 (C_{4}), 6 (C_{6})$
+  \item $m (C_{1v}), 2mm (C_{2v}), 3m (C_{3v}), 4mm (C_{4v}), 6mm (C_{6v})$.
+\end{itemize}
+
 \subsubsection{Linear part of Euclidean normalizer}
-If $(\bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, for all $(\bm{E}, \bm{w}) \in \mathcal{S}$, $(\bm{P}, \bm{p})$ satisfies the following condition at least
+
+If $(\bm{P}, \bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G})$, for all $(\bm{E}, \bm{w}) \in \mathcal{G}$, $(\bm{P}, \bm{p})$ satisfies the following condition at least
 \begin{align}
-  (\bm{P}, \bm{p}) (\bm{E}, \bm{w}) (\bm{P}, \bm{p})^{-1} = (\bm{E}, \bm{Pw}) \in \mathcal{G}.
+  (\bm{P}, \bm{p}) (\bm{E}, \bm{w}) (\bm{P}, \bm{p})^{-1} = (\bm{E}, \bm{P}{w}) \in \mathcal{G}.
 \end{align}
-Therefore, $\bm{P} \in \mathrm{GL}_{n}(\mathbf{Z})$.
-
-Similarly, considering $(\bm{P}, \bm{p} )^{-1} = (\bm{P}^{-1}, -\bm{P}^{-1}\bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{S})$, we obtain $\bm{A}^{-1} \in \mathrm{GL}_{n}(\mathbf{Z})$.
-Thus, $\bm{P}$ is a unimodular (integer) matrix.
-
+Therefore, $\bm{P} \in \mathrm{GL}_{n}(\mathbb{Z})$.
+Similarly, considering $(\bm{P}, \bm{p} )^{-1} = (\bm{P}^{-1}, -\bm{P}^{-1}\bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G})$, we obtain $\bm{P}^{-1} \in \mathrm{GL}_{n}(\mathbb{Z})$.
+Thus, $\bm{P}$ is unimodular.
 Moreover, $\bm{P}$ should belong to the Bravais group of the translation lattice, $\mathcal{B}(L)$, so that $(\bm{P}, \bm{p} )$ is an isometry.
 
 \subsubsection{Translation part of Euclidean normalizer}
+
 Let $\bm{P}$ be an element of Bravais group $\mathcal{B}(L)$.
-If $(\bm{P}, \bm{p} ) \in \mathrm{Stab}_{\mathcal{E}_{n}}(\mathcal{G})$, the condition
+If $(\bm{P}, \bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G})$, the condition
 \begin{align}
   (\bm{P}, \bm{p}) (\bm{W}, \bm{w}) (\bm{P}, \bm{p})^{-1} = (\bm{W}', \bm{w}') \in \mathcal{G}
 \end{align}
 gives
 \begin{align}
     \label{eq:normalizer-translation-part}
-    (\bm{E} - \bm{W}' ) \bm{p} = \bm{w}' - \bm{Pw} \quad (\mathrm{mod}\, \mathbb{Z}^{n})
+    (\bm{E} - \bm{W}' ) \bm{p} \equiv \bm{w}' - \bm{Pw} \quad (\mathrm{mod}\, \mathbb{Z}^{n})
     \quad (\forall ( \bm{W}, \bm{w} ) \in \mathcal{G} ).
 \end{align}
 Conversely, a set of operations $(\bm{P}, \bm{p})$ satisfying Eq.~\eqref{eq:normalizer-translation-part} is a subgroup of $\mathcal{E}_{n}$.
+
+\subsubsection{\label{sec:normalizer-example-p2mm}Example: normalizers of \texorpdfstring{$p2mm$}{p2mm}}
+
+Let us compute the Euclidean normalizer of $p2mm$, $\mathcal{N}_{\mathcal{E}_{2}}(p2mm)$.
+The generators of $p2mm$ are given in Eq.~\eqref{eq:p2mm}.
+
+The linear integer system of Eq.~\eqref{eq:normalizer-basis} for $\bm{p} = \begin{pmatrix} p_{1} \\ p_{2} \end{pmatrix}$ is written as
+\begin{align*}
+  2 p_{1} &\equiv 0 \quad (\mathrm{mod} \, \mathbb{Z}) \\
+  2 p_{2} &\equiv 0 \quad (\mathrm{mod} \, \mathbb{Z}).
+\end{align*}
+Thus, the basis vectors for the translation subgroup of $\mathcal{N}_{\mathcal{E}_{2}}(p2mm)$ is
+$\left\{ \begin{pmatrix} \frac{1}{2} \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ \frac{1}{2} \end{pmatrix} \right\}$.
+
+The linear parts of $\mathcal{N}_{\mathcal{E}_{2}}(p2mm)$ is a subgroup of the Bravais group.
+If the translations lattice does not have a specialized metric, the Bravais group is also $2mm$.
+Then, there is no additional generator for the Euclidean normalizer.
+
+% Specialized metric
+If the translations lattice has a specialized metric, the Bravais group is $4mm$.
+Then, the candidate for linear parts of additional generators is $\begin{pmatrix} 0 & -1 \\ 1 & 1 \\ \end{pmatrix}$, which is a fourfold rotation.
+The integer linear system of Eq.~\eqref{eq:normalizer-translation-part} for a translation part $\bm{p} = \begin{pmatrix} p_{1} \\ p_{2} \end{pmatrix}$ gives
+\begin{align*}
+  \begin{pmatrix}
+    2 & 0 \\
+    0 & 2 \\
+  \end{pmatrix}
+  \begin{pmatrix} p_{1} \\ p_{2} \end{pmatrix}
+  &\equiv \bm{0} \\
+  \begin{pmatrix}
+    2 & 0 \\
+    0 & 0 \\
+  \end{pmatrix}
+  \begin{pmatrix} p_{1} \\ p_{2} \end{pmatrix}
+  &\equiv \bm{0} \\
+  \begin{pmatrix}
+    0 & 0 \\
+    0 & 2 \\
+  \end{pmatrix}
+  \begin{pmatrix} p_{1} \\ p_{2} \end{pmatrix}
+  &\equiv \bm{0}.
+\end{align*}
+Thus, we can choose $\bm{p} = \bm{0}$ up to the translational symmetry of the Euclidean normalizer.
+Then, $\overline{y},x$ is an additional generator of the Euclidean normalizer.
