@@ -28,7 +28,7 @@ Then it is convenient to define the following matrix for calculating distances.
 \end{screen}
 
 We remark that metric tensor $\bm{G}$ implicitly depends on the choice of basis vectors of $L$.
-When basis vectors are changed from $\bm{A}$ to $\bm{AP}$, the metric tensor are changed from $ \bm{G} = \bm{A}^{\top} \bm{A}$ to $\bm{P}^{\top} \bm{GP}$.
+When basis vectors are changed from $\bm{A}$ to $\bm{AP}$, the metric tensor is changed from $ \bm{G} = \bm{A}^{\top} \bm{A}$ to $\bm{P}^{\top} \bm{GP}$.
 
 Be careful basis vectors $\bm{A}$ are column-wise whereas programmers often use row-wise basis vectors.
 \begin{lstlisting}[language=Python]
@@ -51,7 +51,7 @@ Be careful basis vectors $\bm{A}$ are column-wise whereas programmers often use 
 
 \subsubsection{Affine mapping}
 
-To display components of points, we fix some orgin $O$ and basis $\bm{a}_{1}, \dots, \bm{a}_{n}$ in $\mathbb{R}^{n}$.
+To display components of points, we fix some origin $O$ and basis $\bm{a}_{1}, \dots, \bm{a}_{n}$ in $\mathbb{R}^{n}$.
 We define \term{affine space} by using $O$ and $\bm{a}_{1}, \dots, \bm{a}_{n}$.
 \begin{align}
   \mathbb{A}_{n} := \set{ \begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \\ 1 \end{pmatrix} }{ x_{1} \dots, x_{n} \in \mathbb{R} }.
@@ -126,7 +126,7 @@ These computations can be written as usual matrix operations,
     \begin{pmatrix} \bm{W}_{1}^{-1} & -\bm{W}_{1}^{-1}\bm{w}_{1} \\ \bm{0}^{\top} & 1 \end{pmatrix}^{-1}.
 \end{align}
 
-\subsubsection{short-hand notation}
+\subsubsection{Short-hand notation}
 
 The matrix-column pair $(\bm{W}, \bm{w})$ is often represented in the \term{short-hand notation}, which consists of a tuple
 \begin{align*}
@@ -198,7 +198,7 @@ An affine mapping $(\bm{W}, \bm{w})$ is transformed to $(\bm{W}', \bm{w}')$
   &= \left( \bm{P}^{-1} \bm{W} \bm{P}, \bm{P}^{-1}(\bm{Wp} + \bm{w} - \bm{p}) \right).
 \end{align}
 
-The metric tensor $\bm{G}$ of the lattice spanned the basis vectors of the affine space is transformed to
+The metric tensor $\bm{G}$ of the lattice spanned by the basis vectors of the affine space is transformed to
 \begin{align}
   \bm{G}' &= \bm{P}^{\top} \bm{GP}.
 \end{align}
@@ -258,7 +258,11 @@ These plane groups are shown in Fig.~\ref{fig:plane-group-diagrams}.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.9\textwidth]{figure/fig_plane_groups.pdf}
-  \caption{Example diagrams of plane groups}
+  \caption{
+    Example diagrams of plane groups.
+    $a$ axis is running from top to bottom.
+    $b$ axis is running from left to right.
+  }
   \label{fig:plane-group-diagrams}
 \end{figure}
 
