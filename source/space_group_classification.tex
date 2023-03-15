@@ -41,10 +41,7 @@ It is natural to identify two space groups that are transformed into another by 
 
 \begin{screen}
   \begin{defn}[affine space-group type]
-    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping $(\bm{P}, \bm{p}) \in \mathcal{A}_{3}$ such that
-    \begin{align}
-      (\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'.
-    \end{align}
+    Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping $(\bm{P}, \bm{p}) \in \mathcal{A}_{3}$ such that $(\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'$.
     These space groups are also called \term{affinely equivalent}.
   \end{defn}
 \end{screen}
@@ -102,10 +99,7 @@ We consider classification based on a point group of a space group.
 
 \begin{screen}
   \begin{defn}[geometric crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ such that
-    \begin{align}
-       \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
-    \end{align}
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{geometric crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same geometric crystal class.
   \end{defn}
 \end{screen}
@@ -213,10 +207,7 @@ Note that the Bravais group may change as a set by transforming primitive basis.
 
 \begin{screen}
   \begin{defn}[Bravais type of lattice]
-    Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
-    \begin{align}
-       \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
-    \end{align}
+    Two lattices $L$ and $L'$ belong to the same \term{Bravais type of lattice} if their Bravais groups are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L')$.
   \end{defn}
 \end{screen}
 This definition of Bravais types of lattices is independent of choices for primitive basis.
@@ -299,10 +290,7 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 \begin{screen}
   \begin{defn}[Bravais class]
     Let $L$ be some lattice with a metric tensor $\bm{G}$.
-    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ belongs to a \term{Bravais class} corresponding to the Bravais type of $L$ if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
-    \begin{align}
-      \bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L)).
-    \end{align}
+    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ belongs to a \term{Bravais class} corresponding to the Bravais type of $L$ if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L))$.
   \end{defn}
 \end{screen}
 
@@ -369,10 +357,7 @@ Therefore, $cm$ belongs to the Bravais group $oc$ whether its translation lattic
 
 \begin{screen}
   \begin{defn}[arithmetic crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that
-    \begin{align}
-      \bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'.
-    \end{align}
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, both written with primitive basis vectors, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
   \end{defn}
 \end{screen}
@@ -422,10 +407,7 @@ The definition of Bravais arithmetic crystal classes is compatible with that of 
 
 \begin{screen}
   \begin{defn}[lattice system]
-    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class, that is, some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ exists such that
-    \begin{align}
-      \bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L').
-    \end{align}
+    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class, that is, some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ exists such that $\bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L')$.
   \end{defn}
 \end{screen}
 
@@ -471,8 +453,8 @@ There are seven crystal systems for three-dimensional space groups as shown in T
     Monoclinic     & $2/m, m, 2$                                              \\
     Orthorhombic   & $mmm, mm2, 222$                                          \\
     Tetragonal     & $4/mmm, \overline{4}2m, 4mm, 422, 4/m, \overline{4}, 4$  \\
-    Hexagonal      & $6/mmm, \overline{6}2m, 6mm, 622, 6/m, \overline{6}, 6$  \\
     Trigonal       & $\overline{3}m, 3m, 32, \overline{3}, 3$                 \\
+    Hexagonal      & $6/mmm, \overline{6}2m, 6mm, 622, 6/m, \overline{6}, 6$  \\
     Cubic          & $m\overline{3}m, \overline{4}3m, 432, m\overline{3}, 23$ \\
     \hline\hline
   \end{tabular}
