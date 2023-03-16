@@ -21,7 +21,7 @@ Here, we briefly prepare notations for group theory and introduce notions in cry
       \item (Closure) For all $g, h \in G$, $g \circ h \in G$;
       \item (Associativity) For all $g, h, k \in G$, $(g \circ h) \circ k = g \circ (h \circ k)$;
       \item (Identity) There exists a unique element $e \in G$ satisfying $g \circ e = e \circ g = g$ for all $g \in G$;
-      \item (Identity) For all $g \in G$, there exists an inverse of $g$, denoted by $g^{-1}$ such that $g \circ g^{-1} = g^{-1} \circ g = e$.
+      \item (Inverse) For all $g \in G$, there exists an inverse of $g$, denoted by $g^{-1}$ such that $g \circ g^{-1} = g^{-1} \circ g = e$.
     \end{itemize}
   \end{defn}
 \end{screen}
@@ -588,7 +588,7 @@ The translation subgroup $\mathcal{T}_{n}$ is a normal subgroup of $\mathcal{A}_
   \begin{pmatrix} \bm{I}_{n} & \bm{t} \\ \bm{0}^{\top} & 1 \end{pmatrix}
   \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix}
   =
-  \begin{pmatrix} \bm{I}_{n} & \bm{W}^{-1} (\bm{t} - \bm{w}) \\ \bm{0}^{\top} & 1 \end{pmatrix}
+  \begin{pmatrix} \bm{I}_{n} & \bm{W}^{-1} \bm{t} \\ \bm{0}^{\top} & 1 \end{pmatrix}
   \in \mathcal{T}_{n}.
 \end{align*}
 
@@ -646,9 +646,9 @@ The translation subgroup $\mathcal{T}_{n}$ is a normal subgroup of $\mathcal{A}_
   \end{them}
 \end{screen}
 
-We can construct a homomorphism between $\mathcal{A}_{n}$ and $\mathrm{O}(n)$ as
+We can construct a homomorphism between $\mathcal{E}_{n}$ and $\mathrm{O}(n)$ as
 \begin{align*}
-  \varphi: \mathcal{A}_{n} \ni \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix}
+  \varphi: \mathcal{E}_{n} \ni \begin{pmatrix} \bm{W} & \bm{w} \\ \bm{0}^{\top} & 1 \end{pmatrix}
     \mapsto \bm{A} \bm{W} \bm{A}^{-1} \in \mathrm{O}(n).
 \end{align*}
 The kernel of $\varphi$ is
