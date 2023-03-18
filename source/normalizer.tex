@@ -129,6 +129,8 @@ The list of Wyckoff sets is given in \href{https://www.cryst.ehu.es/html/cryst/w
 
 \subsection{Derivation of Euclidean normalizer}
 
+We describe a method to derive the Euclidean normalizer in Ref.~\cite{Boisen:bx0358}.
+
 \subsubsection{Basis vectors of Euclidean and affine normalizers}
 
 If $( \bm{E}, \bm{p} ) \in \mathcal{N}_{\mathcal{E}_{n}}(\mathcal{G}) $, for all $(\bm{W}, \bm{w} ) \in \mathcal{G}$, there exists a symmetry operation $(\bm{W}', \bm{w}' ) \in \mathcal{G}$ such that
@@ -159,9 +161,11 @@ The linear integer system of Eq.~\eqref{eq:normalizer-basis} can be solved by it
 Because the above discussion is independent of whether an operation is an isometry or not, basis vectors of the Euclidean normalizer and affine normalizer can coincide.
 
 % When the polar direction has no symmetry-equivalent directions, the normalizer contains continuous translations.
-If the normalizer has a continuous translation along $\bm{v}$, $\bm{v}$ should be an eigenvector with eigenvalue 1 for all linear parts $\bm{W} \in \mathcal{P}(\mathcal{G})$.
+If the normalizer has a continuous translation along $\bm{v}$, $\bm{v}$ should be an eigenvector with eigenvalue 1 for all $\bm{W} \in \mathcal{P}(\mathcal{G})$.
 The geometric crystal classes with such a polar direction are called \term{pyroelectric point groups}.
-In three dimensions, the pyroelectric point groups are
+Then, Rotoinversions $\overline{3}$, $\overline{4}$, $\overline{6}$ cannot be contained in $\mathcal{P}(\mathcal{G})$ because they has no such an axis.
+If $\mathcal{P}(\mathcal{G})$ has a mirror, its normal axis should be perpendicular to the primary rotation axis.
+Thus, in three dimensions, the pyroelectric point groups are
 \begin{itemize}
   \item $1$
   \item $2 (C_{2}), 3 (C_{3}), 4 (C_{4}), 6 (C_{6})$

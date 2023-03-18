@@ -213,6 +213,13 @@ Note that the Bravais group may change as a set by transforming primitive basis.
 \end{screen}
 This definition of Bravais types of lattices is independent of choices for primitive basis.
 
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figure/fig_Bravais_manifold.pdf}
+  \caption{Bravais manifolds of point groups of (a) $pm$ and (b) $cm$.}
+  \label{fig:bravais_manifold}
+\end{figure}
+
 \paragraph{Example: Bravais types of lattices of translation lattices of $pm$ and $cm$}
 
 We consider a translation lattice of $pm$.
@@ -291,7 +298,7 @@ When the dimension of $\bm{M}(\mathcal{B}(L))$ is smaller than that of $\bm{M}(\
 \begin{screen}
   \begin{defn}[Bravais class]
     Let $L$ be some lattice with a metric tensor $\bm{G}$.
-    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ belongs to a \term{Bravais class} corresponding to the Bravais type of $L$ if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L))$.
+    A space group $\mathcal{G}$ with a point group $\mathcal{P}$ belongs to a \term{Bravais class} corresponding to the Bravais type of $L$ if $\bm{M}(\mathcal{P})$ and $\bm{M}(\mathcal{B}(L))$ are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{\top} \bm{M}(\mathcal{P}) \bm{P} = \bm{M}(\mathcal{B}(L))$.
   \end{defn}
 \end{screen}
 
@@ -462,6 +469,8 @@ There are seven crystal systems for three-dimensional space groups as shown in T
 \end{table}
 
 \subsubsection{\label{sec:crystal-family}Crystal family}
+
+\todo{Fix definition}
 
 \begin{screen}
   \begin{defn}[crystal family]
