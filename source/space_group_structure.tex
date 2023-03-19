@@ -71,6 +71,24 @@ Therefore, there are only finitely many acted vectors because the maximum norm o
 When we choose the lattice basis of $\mathcal{T}(\mathcal{G})$ as the basis vectors of the affine spaces, the translation subgroup $\mathcal{T}(\mathcal{G})$ is represented as $\set{ (\bm{I}_{n}, \bm{t}) }{ \bm{t} \in \mathbb{Z}^{n} }$.
 And the action of point group $\mathcal{P}$ is described as integer matrices.
 
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figure/fig_crystallographic_rotation_3d.pdf}
+  \caption{Rotations acting on a lattice are 1, 2, 3, 4, or 6 fold rotations.}
+  \label{fig:crystallographic_rotation_3d}
+\end{figure}
+
+In particular, proper rotations of a point group of a three-dimensional space group should be 1, 2, 3, 4, or 6 fold rotations.
+The proof is sketched in Fig.~\ref{fig:crystallographic_rotation_3d}.
+We pick a lattice point $A$ and its nearest lattice point $B$\footnote{
+  Because a lattice is discrete, $A$ and $B$ are distinct points, $A \neq B$.
+}.
+For simplicity, we scale the length between $A$ and $B$ to be one.
+When we consider a $n$-fold rotation with angle $\theta = \frac{2\pi}{n}$, the rotation with origin $A$ maps $B$ to $B'$, and the rotation with origin $B$ maps $A$ to $A'$.
+Then, the length between $A'$ and $B'$, $A'B' = 1 - 2 \cos \theta$ should be an integer because lengths between lattice points should be multiple of $AB=1$.
+Thus, $\cos \theta$ should be one of $1, -1, \frac{1}{2}, 0, -\frac{1}{2}$ and these rotations correspond to 1, 2, 3, 4, and 6 fold rotations.
+For an improper rotation $\bm{W}$ with $\det \bm{W} < 0$, the corresponding proper rotation $-\bm{W}$ should also be 1, 2, 3, 4, or 6 fold rotations.
+
 \subsection{\label{sec:vector_system}Symmorphic and non-symmorphic space groups}
 
 The translation subgroup of space group $\mathcal{G}$ can be chosen to be $\mathcal{T} = \mathbb{Z}^{n}$ by choosing primitive basis vectors.
