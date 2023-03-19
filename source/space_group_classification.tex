@@ -38,13 +38,13 @@ We classify space groups in three dimensions (see Fig.~\ref{fig:space_group_clas
 \subsection{\label{sec:space-group-type}Affine space-group type and space-group type}
 
 It is natural to identify two space groups that are transformed into another by changing coordinate systems.
-
 \begin{screen}
   \begin{defn}[affine space-group type]
     Two space groups $\mathcal{G}, \mathcal{G}'$ belong to the same \term{affine space-group type} if they are conjugate by some affine mapping $(\bm{P}, \bm{p}) \in \mathcal{A}_{3}$ such that $(\bm{P}, \bm{p})^{-1} \mathcal{G} (\bm{P}, \bm{p}) = \mathcal{G}'$.
     These space groups are also called \term{affinely equivalent}.
   \end{defn}
 \end{screen}
+Note that we do not restrict the domain of $(\bm{P}, \bm{p})$ in the definition of the affine space-group type into $\mathcal{E}_{3}$ because we would like to identify different crystal structures with the same matrix representations of symmetry operations.
 
 It is nontrivial fact that affine equivalence completely identifies the isomorphism of space groups.
 
@@ -93,13 +93,27 @@ For example, there are 11 enantiomorphic pairs in three dimensions as Table.~\re
   \end{tabular}
 \end{table}
 
+\subsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
+
+\begin{screen}
+  \begin{defn}[arithmetic crystal class]
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
+    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, both written with primitive basis vectors, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
+  \end{defn}
+\end{screen}
+
+The arithmetic crystal class forgets vector systems of space groups in Sec.~\ref{sec:vector_system}.
+Therefore, the arithmetic crystal classes have a one-to-one correspondence with symmorphic space-group types.
+There are \href{https://dictionary.iucr.org/Arithmetic_crystal_class}{73 arithmetic crystal classes} for space groups.
+We mention that the transformation matrix $\bm{P}$ is restricted in $\mathrm{SL}(3, \mathbb{Z})$ (not $\mathrm{SL}(3, \mathbb{R})$) to preserve centerings of translation subgroup $\mathcal{T}(\mathcal{G})$, which we will explain in more detail in the example of the next section.
+
 \subsection{\label{sec:geometric-class}Classification based on point group}
 
 We consider classification based on a point group of a space group.
 
 \begin{screen}
   \begin{defn}[geometric crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
+    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{geometric crystal class} if they are conjugate by some invertible matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{R})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
     Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, respectively, belong to the same \term{geometric crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same geometric crystal class.
   \end{defn}
 \end{screen}
@@ -287,8 +301,9 @@ The Bravais groups for two-dimensional lattices are given in Table~\ref{tab:two-
     Let $K$ be a subgroup of $\mathrm{GL}(3, \mathbb{Z})$.
     A \term{space of metric tensors (Bravais manifold) of $K$} is the space of all metric tensors invariant with $K$,
     \begin{align}
-      \bm{M}( K ) \coloneqq \set{ \bm{G} \in \mathbb{R}^{3 \times 3}_{\mathrm{sym}} }{ \bm{W}^{\top}\bm{G}\bm{W} = \bm{G} \quad (\forall \bm{W} \in K ) }
+      \bm{M}( K ) \coloneqq \set{ \bm{G} \in \mathbb{R}^{3 \times 3}_{\mathrm{sym}} }{ \bm{W}^{\top}\bm{G}\bm{W} = \bm{G} \quad (\forall \bm{W} \in K ) },
     \end{align}
+    where $\mathbb{R}^{n \times n}_{\mathrm{sym}}$ is a set of $n \times n$ symmetric real matrices.
   \end{defn}
 \end{screen}
 
@@ -311,6 +326,43 @@ Note that the definition of Bravais classes is independent of whether a translat
 \end{screen}
 
 The seven holohedries for the three-dimensional lattices are shown in Table.~\ref{tab:lattice_system}.
+
+\begin{screen}
+  \begin{defn}[Bravais arithmetic crystal class]
+    The arithmetic crystal class of a space group $\mathcal{G}$ is called a \term{Bravais arithmetic crystal class} if the point group of $\mathcal{G}$ is the Bravais group of the translation lattice $L$ of $\mathcal{G}$,
+    \begin{align}
+      \mathcal{P} = \mathcal{B}(L).
+    \end{align}
+  \end{defn}
+\end{screen}
+
+Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
+The definition of Bravais arithmetic crystal classes is compatible with that of Bravais types of lattices (see Table~\ref{table:arithmetic-class-3d}).
+
+\begin{table}[htb]
+  \centering
+  \caption{The correspondence of Bravais arithmetic crystal classes and Bravais types of lattices in three dimensions.}
+  \label{table:arithmetic-class-3d}
+  \begin{tabular}{cc}
+    \hline\hline
+    Bravais type of lattice & Bravais arithmetic crystal class \\ \hline
+    $aP$                    & $\overline{1}P$                  \\
+    $mP$                    & $2/mP$                           \\
+    $mC$                    & $2/mC$                           \\
+    $oP$                    & $mmmP$                           \\
+    $oS$                    & $mmmC$                           \\
+    $oF$                    & $mmmF$                           \\
+    $oI$                    & $mmmI$                           \\
+    $tP$                    & $4/mmmP$                         \\
+    $tI$                    & $4/mmmI$                         \\
+    $hR$                    & $\overline{3}mR$                 \\
+    $hP$                    & $6/mmmP$                         \\
+    $cP$                    & $m\overline{3}mP$                \\
+    $cF$                    & $m\overline{3}mF$                \\
+    $cI$                    & $m\overline{3}mI$                \\
+    \hline\hline
+  \end{tabular}
+\end{table}
 
 \paragraph{Example: Bravais manifolds and Bravais classes of $pm$}
 
@@ -361,61 +413,12 @@ Therefore, $cm$ belongs to the Bravais group $oc$ whether its translation lattic
 
 \subsection{Other classifications}
 
-\subsubsection{\label{sec:arithmetic-crystal-class}Arithmetic crystal class}
-
-\begin{screen}
-  \begin{defn}[arithmetic crystal class]
-    Two subgroups of $\mathrm{GL}(3, \mathbb{Z})$, $\mathcal{P}$ and $\mathcal{P}'$, belong to the same \term{arithmetic crystal class} if they are conjugate by some unimodular matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{Z})$ such that $\bm{P}^{-1} \mathcal{P} \bm{P} = \mathcal{P}'$.
-    Two space groups $\mathcal{G}$ and $\mathcal{G}'$ with point groups $\mathcal{P}$ and $\mathcal{P}'$, both written with primitive basis vectors, belong to the same \term{arithmetic crystal class} if $\mathcal{P}$ and $\mathcal{P}'$ belong to the same arithmetic crystal class.
-  \end{defn}
-\end{screen}
-
-The arithmetic crystal class forgets vector systems of space groups in Sec.~\ref{sec:vector_system}.
-Therefore, the arithmetic crystal classes have a one-to-one correspondence with symmorphic space-group types.
-There are \href{https://dictionary.iucr.org/Arithmetic_crystal_class}{73 arithmetic crystal classes} for space groups.
-
-\begin{screen}
-  \begin{defn}[Bravais arithmetic crystal class]
-    The arithmetic crystal class of a space group $\mathcal{G}$ is called a \term{Bravais arithmetic crystal class} if the point group of $\mathcal{G}$ is the Bravais group of the translation lattice $L$ of $\mathcal{G}$,
-    \begin{align}
-      \mathcal{P} = \mathcal{B}(L).
-    \end{align}
-  \end{defn}
-\end{screen}
-
-% Note that Bravais arithmetic crystal classes are classifications for arithmetic crystal classes of space groups, and Bravais classes are classifications for space groups.
-The definition of Bravais arithmetic crystal classes is compatible with that of Bravais types of lattices (see Table~\ref{table:arithmetic-class-3d}).
-
-\begin{table}[htb]
-  \centering
-  \caption{The correspondence of Bravais arithmetic crystal classes and Bravais types of lattices in three dimensions.}
-  \label{table:arithmetic-class-3d}
-  \begin{tabular}{cc}
-    \hline\hline
-    Bravais type of lattice & Bravais arithmetic crystal class \\ \hline
-    $aP$                    & $\overline{1}P$                  \\
-    $mP$                    & $2/mP$                           \\
-    $mC$                    & $2/mC$                           \\
-    $oP$                    & $mmmP$                           \\
-    $oS$                    & $mmmC$                           \\
-    $oF$                    & $mmmF$                           \\
-    $oI$                    & $mmmI$                           \\
-    $tP$                    & $4/mmmP$                         \\
-    $tI$                    & $4/mmmI$                         \\
-    $hR$                    & $\overline{3}mR$                 \\
-    $hP$                    & $6/mmmP$                         \\
-    $cP$                    & $m\overline{3}mP$                \\
-    $cF$                    & $m\overline{3}mF$                \\
-    $cI$                    & $m\overline{3}mI$                \\
-    \hline\hline
-  \end{tabular}
-\end{table}
-
 \subsubsection{\label{sec:lattice-system}Lattice system}
 
+Next, we consider classifying the Bravais classes by ignoring centerings.
 \begin{screen}
   \begin{defn}[lattice system]
-    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class, that is, some invertible matrix $\bm{P} \in \mathrm{GL}(3, \mathbb{R})$ exists such that $\bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L')$.
+    Two lattices $L$ and $L'$ belong to the same \term{lattice system} if their Bravais groups belong to the same geometric crystal class, that is, some invertible matrix $\bm{P} \in \mathrm{SL}(3, \mathbb{R})$ exists such that $\bm{P}^{-1} \mathcal{B}(L) \bm{P} = \mathcal{B}(L')$.
   \end{defn}
 \end{screen}
 
@@ -470,11 +473,9 @@ There are seven crystal systems for three-dimensional space groups as shown in T
 
 \subsubsection{\label{sec:crystal-family}Crystal family}
 
-\todo{Fix definition}
-
 \begin{screen}
   \begin{defn}[crystal family]
-    The \term{crystal family} of space group $\mathcal{G}$ is the union of all geometric crystal classes that contain some space group $\mathcal{G}'$ that has the same Bravais type of lattices as $\mathcal{G}$.
+    The \term{crystal family} of space group $\mathcal{G}$ is the union of all geometric crystal classes that contain some space group $\mathcal{G}'$ that has the same Bravais type of lattices as $\mathcal{G}$ with the same number of dimensions of Bravais manifolds.
   \end{defn}
 \end{screen}
 
