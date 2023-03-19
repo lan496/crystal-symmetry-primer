@@ -127,6 +127,43 @@ The list of Wyckoff sets is given in \href{https://www.cryst.ehu.es/html/cryst/w
 %
 % Section 4.3 of Ref.~\cite{Souvignier08}
 
+\subsection{Chirality}
+
+\begin{screen}
+  \begin{defn}
+    An operation of the \term{first kind} is an operation with a proper linear part.
+    An operation of the \term{second kind} is an operation with an improper linear part.
+  \end{defn}
+\end{screen}
+
+\begin{screen}
+  \begin{defn}[chiral]
+    A crystal pattern is called \term{chiral} if it cannot be superposed on its inversion crystal pattern by an operation of the first kind.
+    A space group of a chiral crystal pattern is called a \term{chiral space group}.
+  \end{defn}
+\end{screen}
+
+Let $f$ be a crystal pattern and $\mathcal{G}$ be its space group.
+When $f$ is not chiral, called achiral, there is an operation of the first kind, $(\bm{W}, \bm{w})$ with $\det \bm{W} > 0$ such that
+\begin{align}
+  \label{eq:chiral-crystal-patterns}
+  (\bm{W}, \bm{w}) f = \overline{1} f.
+\end{align}
+Note that $(\bm{W}, \bm{w})$ does not necessarily belong to the space group of $f$ or $\overline{1}f$.
+
+If $\mathcal{G}$ is a chiral space group, $\mathcal{G}$ should not have an operation of the second kind, $(\bm{W}', \bm{w}')$ with $\det \bm{W}' < 0$: otherwise, $\overline{1} \circ (\bm{W}', \bm{w}')$ satisfies Eq.~\eqref{eq:chiral-crystal-patterns}.
+\begin{screen}
+  \begin{defn}[Sohncke group]
+    A space group is called a \term{Sohncke group} if it does not contain operations of the second kind.
+  \end{defn}
+\end{screen}
+A chiral space group is a Sohncke group.
+However, the converse does not hold.
+In fact, if $\mathcal{N}_{\mathcal{E}_{3}}(\mathcal{G})$ contains an operation of the second kind, the space group is not chiral.
+Thus, the chiral space group is a space group whose Euclidean normalizer contains only operations of the first kind, which is formed of 11 enantiomorphic pairs in three-dimensional space groups.
+
+
+
 \subsection{Derivation of Euclidean normalizer}
 
 We describe a method to derive the Euclidean normalizer in Ref.~\cite{Boisen:bx0358}.
