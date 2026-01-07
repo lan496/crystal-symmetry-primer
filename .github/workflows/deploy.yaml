@@ -13,24 +13,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v3
       with:
         root_file: main.tex
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: PDF
-        path: main.pdf
-
-    - uses: actions/download-artifact@v4
-      with:
-        name: PDF
-        path: ./docs
-
+    - name: Prepare publish directory
+      run: |
+        mkdir -p docs
+        cp -f main.pdf docs/main.pdf
     - name: Deploy docs
       uses: peaceiris/actions-gh-pages@v4
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
